@@ -1,0 +1,821 @@
+{
+	"root": {
+	  "id": "125:2476",
+	  "name": "Landmarks",
+	  "type": "GROUP",
+	  "visible": true,
+	  "bbox": {
+		"x": 14039,
+		"y": 8509,
+		"width": 579,
+		"height": 699
+	  },
+	  "children": [
+		{
+		  "id": "125:2477",
+		  "name": "Landmarks_Mobile",
+		  "type": "GROUP",
+		  "visible": true,
+		  "bbox": {
+			"x": 14039,
+			"y": 8509,
+			"width": 579,
+			"height": 699
+		  },
+		  "children": [
+			{
+			  "id": "126:2508",
+			  "name": "ar",
+			  "type": "GROUP",
+			  "visible": true,
+			  "bbox": {
+				"x": 14187,
+				"y": 8509,
+				"width": 431,
+				"height": 699
+			  },
+			  "children": [
+				{
+				  "id": "125:2478",
+				  "name": "Dubai",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14472,
+					"y": 8509,
+					"width": 146,
+					"height": 176
+				  },
+				  "children": [
+					{
+					  "id": "125:2479",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14472,
+						"y": 8509,
+						"width": 146,
+						"height": 176
+					  },
+					  "children": [
+						{
+						  "id": "125:2480",
+						  "name": "Bg (stroke)",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14472.43,
+							"y": 8509.04,
+							"width": 143.85,
+							"height": 174.42
+						  }
+						},
+						{
+						  "id": "125:2481",
+						  "name": "Dubai",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14506.24,
+							"y": 8517.02,
+							"width": 82.2,
+							"height": 119.43
+						  }
+						},
+						{
+						  "id": "125:2482",
+						  "name": "polygon3589 4",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14585.78,
+							"y": 8529.11,
+							"width": 31.39,
+							"height": 33.29
+						  }
+						},
+						{
+						  "id": "125:2483",
+						  "name": "Dubai",
+						  "type": "TEXT",
+						  "visible": true,
+						  "bbox": {
+							"x": 14523.35,
+							"y": 8644.77,
+							"width": 47,
+							"height": 18
+						  }
+						}
+					  ]
+					}
+				  ]
+				},
+				{
+				  "id": "125:2484",
+				  "name": "Formula 1",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14187,
+					"y": 8937,
+					"width": 150,
+					"height": 271
+				  },
+				  "children": [
+					{
+					  "id": "125:2485",
+					  "name": "Line",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14285,
+						"y": 8937,
+						"width": 52,
+						"height": 132
+					  },
+					  "children": [
+						{
+						  "id": "125:2486",
+						  "name": "Vector    ",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14287,
+							"y": 8942,
+							"width": 46.5,
+							"height": 124.5
+						  }
+						}
+					  ]
+					},
+					{
+					  "id": "125:2487",
+					  "name": "Anchor",
+					  "type": "ELLIPSE",
+					  "visible": true,
+					  "bbox": {
+						"x": 14330,
+						"y": 8937.73,
+						"width": 6.64,
+						"height": 6.64
+					  }
+					},
+					{
+					  "id": "125:2488",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14187,
+						"y": 9063,
+						"width": 144,
+						"height": 145
+					  },
+					  "children": [
+						{
+						  "id": "125:2489",
+						  "name": "Bg",
+						  "type": "RECTANGLE",
+						  "visible": true,
+						  "bbox": {
+							"x": 14187,
+							"y": 9063.02,
+							"width": 144,
+							"height": 144
+						  }
+						},
+						{
+						  "id": "125:2490",
+						  "name": "Yas Marina  Circuit",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14210.33,
+							"y": 9094,
+							"width": 95.67,
+							"height": 48.52
+						  }
+						},
+						{
+						  "id": "125:2491",
+						  "name": "Formula 1",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14221,
+							"y": 9155.5,
+							"width": 76.22,
+							"height": 13.68
+						  }
+						}
+					  ]
+					}
+				  ]
+				}
+			  ]
+			},
+			{
+			  "id": "126:2525",
+			  "name": "en",
+			  "type": "GROUP",
+			  "visible": true,
+			  "bbox": {
+				"x": 14039,
+				"y": 8509,
+				"width": 417,
+				"height": 699
+			  },
+			  "children": [
+				{
+				  "id": "126:2526",
+				  "name": "Dubai",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14310,
+					"y": 8509,
+					"width": 146,
+					"height": 176
+				  },
+				  "children": [
+					{
+					  "id": "126:2527",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14310,
+						"y": 8509,
+						"width": 146,
+						"height": 176
+					  },
+					  "children": [
+						{
+						  "id": "126:2528",
+						  "name": "Bg (stroke)",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14310.43,
+							"y": 8509.04,
+							"width": 143.85,
+							"height": 174.42
+						  }
+						},
+						{
+						  "id": "126:2529",
+						  "name": "Dubai",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14344.24,
+							"y": 8517.02,
+							"width": 82.2,
+							"height": 119.43
+						  }
+						},
+						{
+						  "id": "126:2530",
+						  "name": "polygon3589 4",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14423.78,
+							"y": 8529.11,
+							"width": 31.39,
+							"height": 33.29
+						  }
+						},
+						{
+						  "id": "126:2531",
+						  "name": "Dubai",
+						  "type": "TEXT",
+						  "visible": true,
+						  "bbox": {
+							"x": 14361.35,
+							"y": 8644.77,
+							"width": 47,
+							"height": 18
+						  }
+						}
+					  ]
+					}
+				  ]
+				},
+				{
+				  "id": "126:2532",
+				  "name": "Formula 1",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14039,
+					"y": 8937,
+					"width": 150,
+					"height": 271
+				  },
+				  "children": [
+					{
+					  "id": "126:2533",
+					  "name": "Line",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14137,
+						"y": 8937,
+						"width": 52,
+						"height": 132
+					  },
+					  "children": [
+						{
+						  "id": "126:2534",
+						  "name": "Vector    ",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14139,
+							"y": 8942,
+							"width": 46.5,
+							"height": 124.5
+						  }
+						}
+					  ]
+					},
+					{
+					  "id": "126:2535",
+					  "name": "Anchor",
+					  "type": "ELLIPSE",
+					  "visible": true,
+					  "bbox": {
+						"x": 14182,
+						"y": 8937.73,
+						"width": 6.64,
+						"height": 6.64
+					  }
+					},
+					{
+					  "id": "126:2536",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14039,
+						"y": 9063,
+						"width": 144,
+						"height": 145
+					  },
+					  "children": [
+						{
+						  "id": "126:2537",
+						  "name": "Bg",
+						  "type": "RECTANGLE",
+						  "visible": true,
+						  "bbox": {
+							"x": 14039,
+							"y": 9063.02,
+							"width": 144,
+							"height": 144
+						  }
+						},
+						{
+						  "id": "126:2538",
+						  "name": "Yas Marina  Circuit",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14062.33,
+							"y": 9094,
+							"width": 95.67,
+							"height": 48.52
+						  }
+						},
+						{
+						  "id": "126:2539",
+						  "name": "Formula 1",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14073,
+							"y": 9155.5,
+							"width": 76.22,
+							"height": 13.68
+						  }
+						}
+					  ]
+					}
+				  ]
+				}
+			  ]
+			}
+		  ]
+		},
+		{
+		  "id": "125:2492",
+		  "name": "Landmarks_Desktop",
+		  "type": "GROUP",
+		  "visible": true,
+		  "bbox": {
+			"x": 14096,
+			"y": 8628,
+			"width": 442,
+			"height": 411
+		  },
+		  "children": [
+			{
+			  "id": "126:2507",
+			  "name": "ar",
+			  "type": "GROUP",
+			  "visible": true,
+			  "bbox": {
+				"x": 14245,
+				"y": 8628,
+				"width": 293,
+				"height": 411
+			  },
+			  "children": [
+				{
+				  "id": "125:2493",
+				  "name": "Dubai",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14465,
+					"y": 8628,
+					"width": 73,
+					"height": 88
+				  },
+				  "children": [
+					{
+					  "id": "125:2494",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14465,
+						"y": 8628,
+						"width": 73,
+						"height": 88
+					  },
+					  "children": [
+						{
+						  "id": "125:2495",
+						  "name": "Bg (stroke)",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14465.71,
+							"y": 8628.02,
+							"width": 71.93,
+							"height": 87.21
+						  }
+						},
+						{
+						  "id": "125:2496",
+						  "name": "Dubai",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14482.62,
+							"y": 8632.01,
+							"width": 41.1,
+							"height": 59.71
+						  }
+						},
+						{
+						  "id": "125:2497",
+						  "name": "polygon3589 4",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14522,
+							"y": 8638,
+							"width": 15.59,
+							"height": 16.55
+						  }
+						},
+						{
+						  "id": "125:2498",
+						  "name": "Dubai",
+						  "type": "TEXT",
+						  "visible": true,
+						  "bbox": {
+							"x": 14488.5,
+							"y": 8695.33,
+							"width": 26,
+							"height": 12
+						  }
+						}
+					  ]
+					}
+				  ]
+				},
+				{
+				  "id": "125:2499",
+				  "name": "Formula 1",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14245,
+					"y": 8938,
+					"width": 93,
+					"height": 101
+				  },
+				  "children": [
+					{
+					  "id": "125:2500",
+					  "name": "Line",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14305,
+						"y": 8938,
+						"width": 33,
+						"height": 38
+					  },
+					  "children": [
+						{
+						  "id": "125:2501",
+						  "name": "Vector    ",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14306.5,
+							"y": 8941.93,
+							"width": 27.11,
+							"height": 33.07
+						  }
+						}
+					  ]
+					},
+					{
+					  "id": "125:2502",
+					  "name": "Anchor",
+					  "type": "ELLIPSE",
+					  "visible": true,
+					  "bbox": {
+						"x": 14330.11,
+						"y": 8938.42,
+						"width": 7,
+						"height": 7
+					  }
+					},
+					{
+					  "id": "125:2503",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14245,
+						"y": 8966,
+						"width": 72,
+						"height": 73
+					  },
+					  "children": [
+						{
+						  "id": "125:2504",
+						  "name": "Bg",
+						  "type": "RECTANGLE",
+						  "visible": true,
+						  "bbox": {
+							"x": 14245,
+							"y": 8966.01,
+							"width": 72,
+							"height": 72
+						  }
+						},
+						{
+						  "id": "125:2505",
+						  "name": "Yas Marina  Circuit",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14256,
+							"y": 8980.83,
+							"width": 53.33,
+							"height": 27.05
+						  }
+						},
+						{
+						  "id": "125:2506",
+						  "name": "Formula 1",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14260,
+							"y": 9014.33,
+							"width": 42.34,
+							"height": 7.6
+						  }
+						}
+					  ]
+					}
+				  ]
+				}
+			  ]
+			},
+			{
+			  "id": "126:2509",
+			  "name": "en",
+			  "type": "GROUP",
+			  "visible": true,
+			  "bbox": {
+				"x": 14096,
+				"y": 8628,
+				"width": 276,
+				"height": 411
+			  },
+			  "children": [
+				{
+				  "id": "126:2510",
+				  "name": "Dubai",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14299,
+					"y": 8628,
+					"width": 73,
+					"height": 88
+				  },
+				  "children": [
+					{
+					  "id": "126:2511",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14299,
+						"y": 8628,
+						"width": 73,
+						"height": 88
+					  },
+					  "children": [
+						{
+						  "id": "126:2512",
+						  "name": "Bg (stroke)",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14299.71,
+							"y": 8628.02,
+							"width": 71.93,
+							"height": 87.21
+						  }
+						},
+						{
+						  "id": "126:2513",
+						  "name": "Dubai",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14316.62,
+							"y": 8632.01,
+							"width": 41.1,
+							"height": 59.71
+						  }
+						},
+						{
+						  "id": "126:2514",
+						  "name": "polygon3589 4",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14356,
+							"y": 8638,
+							"width": 15.59,
+							"height": 16.55
+						  }
+						},
+						{
+						  "id": "126:2515",
+						  "name": "Dubai",
+						  "type": "TEXT",
+						  "visible": true,
+						  "bbox": {
+							"x": 14322.5,
+							"y": 8695.33,
+							"width": 26,
+							"height": 12
+						  }
+						}
+					  ]
+					}
+				  ]
+				},
+				{
+				  "id": "126:2516",
+				  "name": "Formula 1",
+				  "type": "GROUP",
+				  "visible": true,
+				  "bbox": {
+					"x": 14096,
+					"y": 8938,
+					"width": 93,
+					"height": 101
+				  },
+				  "children": [
+					{
+					  "id": "126:2517",
+					  "name": "Line",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14156,
+						"y": 8938,
+						"width": 33,
+						"height": 38
+					  },
+					  "children": [
+						{
+						  "id": "126:2518",
+						  "name": "Vector    ",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14157.5,
+							"y": 8941.93,
+							"width": 27.11,
+							"height": 33.07
+						  }
+						}
+					  ]
+					},
+					{
+					  "id": "126:2519",
+					  "name": "Anchor",
+					  "type": "ELLIPSE",
+					  "visible": true,
+					  "bbox": {
+						"x": 14181.11,
+						"y": 8938.42,
+						"width": 7,
+						"height": 7
+					  }
+					},
+					{
+					  "id": "126:2520",
+					  "name": "Label",
+					  "type": "FRAME",
+					  "visible": true,
+					  "bbox": {
+						"x": 14096,
+						"y": 8966,
+						"width": 72,
+						"height": 73
+					  },
+					  "children": [
+						{
+						  "id": "126:2521",
+						  "name": "Bg",
+						  "type": "RECTANGLE",
+						  "visible": true,
+						  "bbox": {
+							"x": 14096,
+							"y": 8966.01,
+							"width": 72,
+							"height": 72
+						  }
+						},
+						{
+						  "id": "126:2522",
+						  "name": "Yas Marina  Circuit",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14107,
+							"y": 8980.83,
+							"width": 53.33,
+							"height": 27.05
+						  }
+						},
+						{
+						  "id": "126:2523",
+						  "name": "Formula 1",
+						  "type": "VECTOR",
+						  "visible": true,
+						  "bbox": {
+							"x": 14111,
+							"y": 9014.33,
+							"width": 42.34,
+							"height": 7.6
+						  }
+						}
+					  ]
+					}
+				  ]
+				}
+			  ]
+			}
+		  ]
+		}
+	  ]
+	},
+	"meta": {
+	  "dumpedAt": "2026-05-18T11:41:01.018Z",
+	  "selectionName": "Landmarks",
+	  "selectionType": "GROUP",
+	  "nodeCount": 63,
+	  "maxDepth": 0,
+	  "includeHidden": false,
+	  "includeBBox": true
+	}
+  }

@@ -1,3 +1,7 @@
+// Reference output for map_landmarks.
+// Without Zoom layers: no `zoom` on landmarks.
+// With Zoom layers (zoom_1, zoom_2, …): `zoom: N` per entry (исходник для правил в приложении).
+
 export default {
 	map_landmarks: {
 		mobile_landmarks: [
@@ -131,25 +135,6 @@ export default {
 				language: ["en"],
 			},
 			{
-				id: "I2520:14392;16801:69978",
-				type: "v2",
-				code: "ferrari_world",
-				anchor: {
-					left: 1268,
-					top: 924.73,
-					width: 6.64,
-					height: 6.64,
-				},
-				bubble: {
-					left: 981,
-					top: 857,
-					width: 144,
-					height: 143,
-					svg: "ferrari_world_mob",
-				},
-				language: ["en"],
-			},
-			{
 				id: "I2520:14392;16801:69984",
 				type: "v2",
 				code: "etihad_towers_hotel",
@@ -219,6 +204,27 @@ export default {
 				},
 				language: ["en"],
 			},
+			// ── Zoom layers (Figma: zoom_1, zoom_2, … under viewport) ──
+			{
+				id: "I2520:14392;16801:69978",
+				type: "v2",
+				code: "ferrari_world",
+				anchor: {
+					left: 1268,
+					top: 924.73,
+					width: 6.64,
+					height: 6.64,
+				},
+				bubble: {
+					left: 981,
+					top: 857,
+					width: 144,
+					height: 143,
+					svg: "ferrari_world_mob",
+				},
+				language: ["en"],
+				zoom: 1,
+			},
 			{
 				id: "I2520:14392;16801:69999",
 				type: "v2",
@@ -237,6 +243,27 @@ export default {
 					svg: "formula_1_mob",
 				},
 				language: ["en"],
+				zoom: 1,
+			},
+			{
+				id: "I2520:14392;16801:69999",
+				type: "v2",
+				code: "formula_1",
+				anchor: {
+					left: 1270,
+					top: 969.73,
+					width: 6.64,
+					height: 6.64,
+				},
+				bubble: {
+					left: 1127,
+					top: 1095,
+					width: 144,
+					height: 145,
+					svg: "formula_1_mob",
+				},
+				language: ["en"],
+				zoom: 2,
 			},
 		],
 		desktop_landmarks: [
@@ -374,25 +401,6 @@ export default {
 				language: ["en"],
 			},
 			{
-				id: "I2520:14392;16801:70119",
-				type: "v2",
-				code: "ferrari_world",
-				anchor: {
-					left: 1268.11,
-					top: 924.42,
-					width: 7,
-					height: 7,
-				},
-				bubble: {
-					left: 1136,
-					top: 930,
-					width: 72,
-					height: 72,
-					svg: "ferrari_world",
-				},
-				language: ["en"],
-			},
-			{
 				id: "I2520:14392;16801:70125",
 				type: "v2",
 				code: "etihad_towers_hotel",
@@ -466,6 +474,27 @@ export default {
 				},
 				language: ["en"],
 			},
+			// ── Zoom layers (Figma: zoom_1 / zoom_2 under Desktop) ──
+			{
+				id: "I2520:14392;16801:70119",
+				type: "v2",
+				code: "ferrari_world",
+				anchor: {
+					left: 1268.11,
+					top: 924.42,
+					width: 7,
+					height: 7,
+				},
+				bubble: {
+					left: 1136,
+					top: 930,
+					width: 72,
+					height: 72,
+					svg: "ferrari_world",
+				},
+				language: ["en"],
+				zoom: 1,
+			},
 			{
 				id: "I2520:14392;16801:70146",
 				type: "v2",
@@ -484,6 +513,27 @@ export default {
 					svg: "formula_1",
 				},
 				language: ["en"],
+				zoom: 1,
+			},
+			{
+				id: "I2520:14392;16801:70146",
+				type: "v2",
+				code: "formula_1",
+				anchor: {
+					left: 1269.11,
+					top: 970.42,
+					width: 7,
+					height: 7,
+				},
+				bubble: {
+					left: 1184,
+					top: 998,
+					width: 72,
+					height: 73,
+					svg: "formula_1",
+				},
+				language: ["en"],
+				zoom: 2,
 			},
 		],
 	},

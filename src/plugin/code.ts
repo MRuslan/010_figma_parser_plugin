@@ -2,6 +2,7 @@
 
 import type { MessageToPlugin, MessageToUI, FigmaNodeInfo } from './types';
 import { getSchema, getSchemasInfo } from './schemas/index';
+import { dumpStructure } from './dev-dump';
 
 // ─── Plugin window ───────────────────────────────────────────
 figma.showUI(__html__, {
@@ -133,6 +134,28 @@ figma.ui.on('message', (msg: MessageToPlugin) => {
         sendToUI({ type: 'PARSE_PROGRESS', step: `✗ Критическая ошибка экспорта: ${errMsg}`, status: 'error' });
         sendToUI({ type: 'SVG_DATA', files: [] });
       });
+      break;
+    }
+
+    case 'DUMP_STRUCTURE': {
+      const selection = figma.currentPage.selection;
+
+      if (selection.length === 0) {
+        sendToUI({
+          type: 'STRUCTURE_DUMP_RESULT',
+          result: null,
+          error: 'Нет выделенного элемента.',
+        });
+        return;
+      }
+
+      try {
+        const result = dumpStructure(selection[0], msg.options);
+        sendToUI({ type: 'STRUCTURE_DUMP_RESULT', result, error: null });
+      } catch (e) {
+        const message = e instanceof Error ? e.message : String(e);
+        sendToUI({ type: 'STRUCTURE_DUMP_RESULT', result: null, error: message });
+      }
       break;
     }
 

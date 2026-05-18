@@ -34,12 +34,55 @@ export interface ParseResult {
   errors: string[];
 }
 
+// ─── Dev structure dump ────────────────────────────────────
+export interface StructureDumpBBox {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+export interface StructureDumpNode {
+  id: string;
+  name: string;
+  type: string;
+  visible?: boolean;
+  bbox?: StructureDumpBBox | null;
+  component?: string;
+  children?: StructureDumpNode[];
+  childrenTruncated?: boolean;
+  childrenCount?: number;
+}
+
+export interface StructureDumpMeta {
+  dumpedAt: string;
+  selectionName: string;
+  selectionType: string;
+  nodeCount: number;
+  maxDepth: number;
+  includeHidden: boolean;
+  includeBBox: boolean;
+}
+
+export interface StructureDumpResult {
+  root: StructureDumpNode;
+  meta: StructureDumpMeta;
+}
+
+export interface StructureDumpOptions {
+  /** 0 = unlimited depth */
+  maxDepth?: number;
+  includeHidden?: boolean;
+  includeBBox?: boolean;
+}
+
 // ─── Messages: UI → Plugin ─────────────────────────────────
 export type MessageToPlugin =
   | { type: 'GET_SELECTION' }
   | { type: 'GET_SCHEMAS' }
   | { type: 'PARSE'; schemaId: ParsingSchemaId }
   | { type: 'DOWNLOAD_SVGS'; exports: SvgExportItem[] }
+  | { type: 'DUMP_STRUCTURE'; options?: StructureDumpOptions }
   | { type: 'CLOSE' };
 
 // ─── Messages: Plugin → UI ─────────────────────────────────
@@ -50,6 +93,7 @@ export type MessageToUI =
   | { type: 'PARSE_RESULT'; output: string | null; svgConfig: string | null; svgExports: SvgExportItem[] | null; errors: string[] }
   | { type: 'SVG_EXPORT_PROGRESS'; done: number; total: number; currentName: string }
   | { type: 'SVG_DATA'; files: { name: string; data: number[] }[] }
+  | { type: 'STRUCTURE_DUMP_RESULT'; result: StructureDumpResult | null; error: string | null }
   | { type: 'ERROR'; message: string };
 
 // ─── Lightweight Figma node representation ─────────────────

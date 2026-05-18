@@ -1,6 +1,7 @@
 /// <reference types="@figma/plugin-typings" />
 
 import { parseLandmarks } from './landmarks';
+import { parseLandmarksV2 } from './landmarks-v2';
 import type { ParseResult, SchemaInfo } from '../types';
 
 // ─── Schema registry ───────────────────────────────────────
@@ -19,7 +20,13 @@ export const SCHEMAS: Schema[] = [
     description: 'Парсит группу Landmarks с Mobile/Desktop версиями в конфиг map_landmarks',
     parse: parseLandmarks,
   },
-  // Future schemas go here...
+  {
+    id: 'landmarks-v2',
+    name: 'Map Landmarks v2',
+    description:
+      'Label + Anchor. Авто-определение Viewports / Languages / Zooms (4 варианта структуры)',
+    parse: parseLandmarksV2,
+  },
 ];
 
 export function getSchema(id: string): Schema | null {

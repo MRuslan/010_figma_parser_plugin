@@ -1,7 +1,15 @@
 <script lang="ts">
   import JSZip from 'jszip';
   import { afterUpdate } from 'svelte';
-  import type { MessageToUI, MessageToPlugin, FigmaNodeInfo, SchemaInfo, LogEntry, SvgExportItem } from '../plugin/types';
+  import type {
+    MessageToUI,
+    MessageToPlugin,
+    FigmaNodeInfo,
+    SchemaInfo,
+    LogEntry,
+    SvgExportItem,
+    StructureDumpResult,
+  } from '../plugin/types';
 
   // ─── State ───────────────────────────────────────────────
   let selectionData: FigmaNodeInfo | null = null;
@@ -22,6 +30,18 @@
   let copiedConfig = false;
   let copiedSvg = false;
   let activeTab: 'config' | 'svg' = 'config';
+
+  // Dev structure dump
+  let dumpMaxDepth = 30;
+  let dumpUnlimitedDepth = false;
+  let dumpIncludeHidden = false;
+  let dumpIncludeBBox = true;
+  let isDumping = false;
+  let structureDump: StructureDumpResult | null = null;
+  let structureDumpJson: string | null = null;
+  let structureDumpError: string | null = null;
+  let copiedDump = false;
+  let devSectionOpen = false;
 
   // ─── Messaging ───────────────────────────────────────────
 
@@ -68,9 +88,28 @@
         handleSvgData(msg.files);
         break;
 
+      case 'STRUCTURE_DUMP_RESULT':
+        isDumping = false;
+        structureDump = msg.result;
+        structureDumpError = msg.error;
+        structureDumpJson = msg.result ? JSON.stringify(msg.result, null, 2) : null;
+        if (msg.error) {
+          logs = [...logs, { step: `Dump: ${msg.error}`, status: 'error' }];
+        } else if (msg.result) {
+          logs = [
+            ...logs,
+            {
+              step: `Dump: ${msg.result.meta.nodeCount} узлов (${msg.result.meta.selectionName})`,
+              status: 'success',
+            },
+          ];
+        }
+        break;
+
       case 'ERROR':
         logs = [...logs, { step: msg.message, status: 'error' }];
         isParsing = false;
+        isDumping = false;
         break;
     }
   });
@@ -175,6 +214,49 @@
     sendMessage({ type: 'CLOSE' });
   }
 
+  function startStructureDump(): void {
+    structureDump = null;
+    structureDumpJson = null;
+    structureDumpError = null;
+    isDumping = true;
+    devSectionOpen = true;
+    sendMessage({
+      type: 'DUMP_STRUCTURE',
+      options: {
+        maxDepth: dumpUnlimitedDepth ? 0 : dumpMaxDepth,
+        includeHidden: dumpIncludeHidden,
+        includeBBox: dumpIncludeBBox,
+      },
+    });
+  }
+
+  async function copyStructureDump(): Promise<void> {
+    if (!structureDumpJson) return;
+    await copyText(structureDumpJson);
+    copiedDump = true;
+    setTimeout(() => (copiedDump = false), 2000);
+  }
+
+  function downloadStructureDump(): void {
+    if (!structureDumpJson || !structureDump) return;
+    const slug = structureDump.meta.selectionName
+      .trim()
+      .toLowerCase()
+      .replace(/[\s_]+/g, '-')
+      .replace(/[^a-z0-9-]/g, '')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '') || 'selection';
+    const blob = new Blob([structureDumpJson], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `figma-dump-${slug}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   // ─── Log auto-scroll ─────────────────────────────────────
   let logListEl: HTMLDivElement;
 
@@ -188,6 +270,7 @@
 
   $: selectedSchema = schemas.find((s) => s.id === selectedSchemaId) ?? null;
   $: canParse = !!selectionData && !!selectedSchemaId && !isParsing;
+  $: canDump = !!selectionData && !isDumping;
   $: hasSvg = !!svgConfig && !!svgExports && svgExports.length > 0;
 
   const statusIcon: Record<string, string> = {
@@ -200,13 +283,13 @@
 
 <main>
   <!-- Header -->
-  <header>
+  <!-- <header>
     <div class="header-title">
       <span class="logo">⬡</span>
       <h1>Figma Parser</h1>
     </div>
     <button class="icon-btn" on:click={closePlugin} title="Закрыть">✕</button>
-  </header>
+  </header> -->
 
   <!-- Selection info -->
   <section class="section">
@@ -253,6 +336,86 @@
         Запустить парсинг
       {/if}
     </button>
+  </section>
+
+  <!-- Developer: structure dump -->
+  <section class="section dev-section">
+    <button
+      type="button"
+      class="dev-toggle"
+      on:click={() => (devSectionOpen = !devSectionOpen)}
+      aria-expanded={devSectionOpen}
+    >
+      <span class="dev-toggle-label">Developer</span>
+      <span class="dev-toggle-hint">дамп структуры для AI</span>
+      <span class="dev-toggle-icon">{devSectionOpen ? '▾' : '▸'}</span>
+    </button>
+
+    {#if devSectionOpen}
+      <p class="dev-desc">
+        Выделите фрейм в Figma и выгрузите дерево узлов (имена, типы, bbox) в JSON — для передачи в чат при разработке новых схем.
+      </p>
+
+      <div class="dev-options">
+        <label class="dev-option">
+          <span>Глубина</span>
+          <input
+            type="number"
+            min="1"
+            max="99"
+            bind:value={dumpMaxDepth}
+            disabled={dumpUnlimitedDepth}
+          />
+        </label>
+        <label class="dev-option dev-option-check">
+          <input type="checkbox" bind:checked={dumpUnlimitedDepth} />
+          <span>Без лимита</span>
+        </label>
+        <label class="dev-option dev-option-check">
+          <input type="checkbox" bind:checked={dumpIncludeBBox} />
+          <span>Bbox</span>
+        </label>
+        <label class="dev-option dev-option-check">
+          <input type="checkbox" bind:checked={dumpIncludeHidden} />
+          <span>Скрытые</span>
+        </label>
+      </div>
+
+      <button class="btn btn-dev" on:click={startStructureDump} disabled={!canDump}>
+        {#if isDumping}
+          <span class="spinner">◌</span> Дамп...
+        {:else}
+          Dump structure
+        {/if}
+      </button>
+
+      {#if structureDumpError}
+        <div class="dev-error">{structureDumpError}</div>
+      {/if}
+
+      {#if structureDump && structureDumpJson}
+        <div class="dev-result">
+          <div class="dev-result-meta">
+            <span>{structureDump.meta.nodeCount} узлов</span>
+            <span>·</span>
+            <span>{structureDump.meta.selectionType}</span>
+            {#if structureDump.root.childrenTruncated}
+              <span>·</span>
+              <span class="dev-warn">обрезано по глубине</span>
+            {/if}
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-secondary btn-sm" on:click={copyStructureDump}>
+              {copiedDump ? '✓ Скопировано' : 'Copy JSON'}
+            </button>
+            <button class="btn btn-secondary btn-sm" on:click={downloadStructureDump}>
+              ↓ Download .json
+            </button>
+          </div>
+          <pre class="result-code dev-dump-code">{structureDumpJson}</pre>
+        </div>
+      {/if}
+    {/if}
   </section>
 
   <!-- Log output -->
@@ -471,6 +634,98 @@
 
   /* ── Action ── */
   .action-section { border-bottom: none; }
+
+  /* ── Developer dump ── */
+  .dev-section { background: #faf9ff; }
+  .dev-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+  .dev-toggle-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #7b61ff;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .dev-toggle-hint {
+    flex: 1;
+    font-size: 10px;
+    color: #aaa;
+  }
+  .dev-toggle-icon {
+    font-size: 10px;
+    color: #999;
+  }
+  .dev-desc {
+    margin: 8px 0 10px;
+    font-size: 11px;
+    color: #777;
+    line-height: 1.45;
+  }
+  .dev-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    margin-bottom: 10px;
+  }
+  .dev-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #555;
+  }
+  .dev-option input[type='number'] {
+    width: 48px;
+    padding: 3px 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+  .dev-option input[type='number']:disabled {
+    opacity: 0.4;
+  }
+  .dev-option-check input[type='checkbox'] {
+    margin: 0;
+  }
+  .btn-dev {
+    width: 100%;
+    padding: 8px 16px;
+    background: #f0edff;
+    color: #5a45c4;
+    border: 1px solid #d4cbff;
+    justify-content: center;
+  }
+  .btn-dev:hover:not(:disabled) { background: #e6e0ff; }
+  .dev-error {
+    margin-top: 8px;
+    padding: 6px 10px;
+    background: #fff0f0;
+    border: 1px solid #fcc;
+    border-radius: 4px;
+    color: #c0392b;
+    font-size: 11px;
+  }
+  .dev-result { margin-top: 10px; }
+  .dev-result-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 10px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .dev-warn { color: #b8860b; }
+  .dev-dump-code { max-height: 240px; font-size: 10px; }
 
   /* ── Buttons ── */
   .btn {
