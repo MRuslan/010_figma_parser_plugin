@@ -1,0 +1,27 @@
+{
+  "name": "figma-parser-by-rus",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-setup.mjs && concurrently \"vite\" \"node scripts/build-plugin.mjs --watch\"",
+    "build": "vite build && node scripts/build-plugin.mjs",
+    "type-check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.90.0",
+    "@sveltejs/vite-plugin-svelte": "^3.1.0",
+    "@tsconfig/svelte": "^5.0.4",
+    "concurrently": "^8.2.2",
+    "esbuild": "^0.21.5",
+    "svelte": "^4.2.18",
+    "svelte-check": "^3.8.4",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0",
+    "vite-plugin-singlefile": "^2.0.2"
+  }
+}
