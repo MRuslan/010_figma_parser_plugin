@@ -20,6 +20,7 @@
   let svgConfig: string | null = null;
   let svgExports: SvgExportItem[] | null = null;
   let svgFolder: string | null = null;
+  let i18nConfig: string | null = null;
   let errors: string[] = [];
   let isParsing = false;
   let isDownloading = false;
@@ -30,7 +31,8 @@
   let svgPhase: 'idle' | 'exporting' | 'packing' | 'done' = 'idle';
   let copiedConfig = false;
   let copiedSvg = false;
-  let activeTab: 'config' | 'svg' = 'config';
+  let copiedI18n = false;
+  let activeTab: 'config' | 'svg' | 'i18n' = 'config';
 
   // Dev structure dump
   let dumpMaxDepth = 30;
@@ -75,6 +77,7 @@
         svgConfig = msg.svgConfig;
         svgExports = msg.svgExports;
         svgFolder = msg.svgFolder ?? null;
+        i18nConfig = msg.i18nConfig ?? null;
         errors = msg.errors;
         isParsing = false;
         activeTab = 'config';
@@ -127,6 +130,7 @@
     svgConfig = null;
     svgExports = null;
     svgFolder = null;
+    i18nConfig = null;
     errors = [];
     isParsing = true;
     activeTab = 'config';
@@ -145,6 +149,13 @@
     await copyText(svgConfig);
     copiedSvg = true;
     setTimeout(() => (copiedSvg = false), 2000);
+  }
+
+  async function copyI18nConfig(): Promise<void> {
+    if (!i18nConfig) return;
+    await copyText(i18nConfig);
+    copiedI18n = true;
+    setTimeout(() => (copiedI18n = false), 2000);
   }
 
   async function copyText(text: string): Promise<void> {
@@ -220,10 +231,12 @@
     svgConfig = null;
     svgExports = null;
     svgFolder = null;
+    i18nConfig = null;
     errors = [];
     activeTab = 'config';
     copiedConfig = false;
     copiedSvg = false;
+    copiedI18n = false;
     if (!isDownloading) {
       svgExportDone = 0;
       svgExportTotal = 0;
@@ -302,7 +315,9 @@
   $: canParse = !!selectionData && !!selectedSchemaId && !isParsing;
   $: canDump = !!selectionData && !isDumping;
   $: hasSvg = !!svgConfig && !!svgExports && svgExports.length > 0;
-  $: canClear = (logs.length > 0 || output !== null || errors.length > 0 || svgConfig !== null) && !isParsing;
+  $: hasI18n = !!i18nConfig;
+  $: i18nKeyCount = i18nConfig ? (i18nConfig.match(/^\t[a-z0-9_]+:/gm) ?? []).length : 0;
+  $: canClear = (logs.length > 0 || output !== null || errors.length > 0 || svgConfig !== null || i18nConfig !== null) && !isParsing;
   $: canClearDump = (structureDump !== null || structureDumpError !== null) && !isDumping;
 
   const statusIcon: Record<string, string> = {
@@ -490,7 +505,7 @@
   {/if}
 
   <!-- Result tabs + content -->
-  {#if output !== null || svgConfig !== null}
+  {#if output !== null || svgConfig !== null || i18nConfig !== null}
     <section class="section result-section">
 
       <!-- Tab switcher -->
@@ -511,6 +526,17 @@
           SVG Config
           {#if hasSvg && svgExports}
             <span class="tab-badge">{svgExports.length}</span>
+          {/if}
+        </button>
+        <button
+          class="tab-btn"
+          class:active={activeTab === 'i18n'}
+          on:click={() => (activeTab = 'i18n')}
+          disabled={!hasI18n}
+        >
+          Translations
+          {#if hasI18n}
+            <span class="tab-badge">{i18nKeyCount}</span>
           {/if}
         </button>
       </div>
@@ -584,6 +610,21 @@
 
         {#if svgConfig}
           <pre class="result-code">{svgConfig}</pre>
+        {/if}
+      {/if}
+
+      <!-- Translations tab -->
+      {#if activeTab === 'i18n'}
+        <div class="result-header">
+          <div class="section-label">Translations ({i18nKeyCount})</div>
+          <button class="btn btn-secondary btn-sm" on:click={copyI18nConfig} disabled={!i18nConfig}>
+            {copiedI18n ? '✓ Скопировано' : 'Copy Translations'}
+          </button>
+        </div>
+        {#if i18nConfig}
+          <pre class="result-code">{i18nConfig}</pre>
+        {:else}
+          <div class="empty-state">Нет переводов</div>
         {/if}
       {/if}
 

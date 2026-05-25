@@ -1,0 +1,185 @@
+{
+  "root": {
+    "id": "167:1262",
+    "name": "Streets",
+    "type": "GROUP",
+    "visible": true,
+    "bbox": {
+      "x": 10941,
+      "y": 9175,
+      "width": 408,
+      "height": 296
+    },
+    "children": [
+      {
+        "id": "167:1263",
+        "name": "Streets_Desktop",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 10941,
+          "y": 9212,
+          "width": 391,
+          "height": 179.97
+        },
+        "children": [
+          {
+            "id": "167:1264",
+            "name": "en",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10941,
+              "y": 9212,
+              "width": 391,
+              "height": 179.97
+            },
+            "children": [
+              {
+                "id": "167:1265",
+                "name": "Sheikh Maktoum Bin Rashid Road",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 11236,
+                  "y": 9212,
+                  "width": 96,
+                  "height": 179.97
+                },
+                "children": [
+                  {
+                    "id": "167:1267",
+                    "name": "Sheikh Maktoum Bin Rashid Road",
+                    "type": "VECTOR",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11236.31,
+                      "y": 9212,
+                      "width": 94.75,
+                      "height": 179.97
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "167:1268",
+                "name": "Al Ain Road",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10941,
+                  "y": 9240,
+                  "width": 49,
+                  "height": 58
+                },
+                "children": [
+                  {
+                    "id": "167:1270",
+                    "name": "Al Ain Road",
+                    "type": "VECTOR",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10940.67,
+                      "y": 9241.68,
+                      "width": 49.74,
+                      "height": 55.15
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "167:1271",
+        "name": "Streets_Mobile",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 11046,
+          "y": 9175,
+          "width": 303,
+          "height": 296
+        },
+        "children": [
+          {
+            "id": "167:1272",
+            "name": "en",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 11046,
+              "y": 9175,
+              "width": 303,
+              "height": 296
+            },
+            "children": [
+              {
+                "id": "167:1273",
+                "name": "Sheikh Maktoum Bin Rashid Road",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 11217,
+                  "y": 9175,
+                  "width": 132,
+                  "height": 248
+                },
+                "children": [
+                  {
+                    "id": "167:1275",
+                    "name": "Sheikh Maktoum Bin Rashid Road",
+                    "type": "VECTOR",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11217.88,
+                      "y": 9175.36,
+                      "width": 131.07,
+                      "height": 246.84
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "167:1276",
+                "name": "Al Ain Road",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 11046,
+                  "y": 9392,
+                  "width": 66,
+                  "height": 79
+                },
+                "children": [
+                  {
+                    "id": "167:1278",
+                    "name": "Al Ain Road",
+                    "type": "VECTOR",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11049.99,
+                      "y": 9401.38,
+                      "width": 62,
+                      "height": 80.61
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "dumpedAt": "2026-05-25T10:29:57.175Z",
+    "selectionName": "Streets",
+    "selectionType": "GROUP",
+    "nodeCount": 13,
+    "maxDepth": 0,
+    "includeHidden": false,
+    "includeBBox": true
+  }
+}

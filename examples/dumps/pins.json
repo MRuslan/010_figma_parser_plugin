@@ -1,0 +1,1517 @@
+{
+  "root": {
+    "id": "175:1962",
+    "name": "Pins_Hover",
+    "type": "GROUP",
+    "visible": true,
+    "bbox": {
+      "x": 10206,
+      "y": 8558,
+      "width": 1235,
+      "height": 387
+    },
+    "children": [
+      {
+        "id": "175:1963",
+        "name": "Pins_Hover_Desktop",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 10216,
+          "y": 8568,
+          "width": 1217,
+          "height": 377
+        },
+        "children": [
+          {
+            "id": "175:1965",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10490,
+              "y": 8693,
+              "width": 740,
+              "height": 125
+            },
+            "children": [
+              {
+                "id": "175:2786",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10490,
+                  "y": 8796,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2939",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10490,
+                      "y": 8796,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2940",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10490,
+                          "y": 8796,
+                          "width": 22,
+                          "height": 22
+                        }
+                      },
+                      {
+                        "id": "175:2941",
+                        "name": "School",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10494.2,
+                          "y": 8801.6,
+                          "width": 13.6,
+                          "height": 10.8
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2790",
+                    "name": "Name L",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10383,
+                      "y": 8789.5,
+                      "width": 102,
+                      "height": 35
+                    },
+                    "children": [
+                      {
+                        "id": "175:2791",
+                        "name": "Repton School\nAbu Dhabi\r",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10395,
+                          "y": 8794,
+                          "width": 78,
+                          "height": 26
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2780",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 11208,
+                  "y": 8693,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2945",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11208,
+                      "y": 8693,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2946",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11208,
+                          "y": 8693,
+                          "width": 22,
+                          "height": 22
+                        }
+                      },
+                      {
+                        "id": "175:2947",
+                        "name": "School",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11212.2,
+                          "y": 8698.6,
+                          "width": 13.6,
+                          "height": 10.8
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2784",
+                    "name": "Name L",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11036,
+                      "y": 8693,
+                      "width": 167,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2785",
+                        "name": "Amity International School",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11048,
+                          "y": 8697.5,
+                          "width": 143,
+                          "height": 13
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "175:1974",
+            "name": "Health",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10306,
+              "y": 8568,
+              "width": 1127,
+              "height": 377
+            },
+            "children": [
+              {
+                "id": "175:2847",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10306,
+                  "y": 8923,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2942",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10306,
+                      "y": 8923,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2943",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10306,
+                          "y": 8923,
+                          "width": 22,
+                          "height": 22
+                        }
+                      },
+                      {
+                        "id": "175:2944",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10312.88,
+                          "y": 8929.16,
+                          "width": 7.78,
+                          "height": 9.8
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2849",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10334,
+                      "y": 8916.5,
+                      "width": 192,
+                      "height": 35
+                    },
+                    "children": [
+                      {
+                        "id": "175:2850",
+                        "name": "Emirates Hospital Day Surgery, \nAl Khalidiyah",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10346,
+                          "y": 8921,
+                          "width": 168,
+                          "height": 26
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2851",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 11411,
+                  "y": 8568,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2932",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11411,
+                      "y": 8568,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2933",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11411,
+                          "y": 8568,
+                          "width": 22,
+                          "height": 22
+                        }
+                      },
+                      {
+                        "id": "175:2934",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11417.88,
+                          "y": 8574.16,
+                          "width": 7.78,
+                          "height": 9.8
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2853",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11439,
+                      "y": 8568,
+                      "width": 157,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2854",
+                        "name": "Seha - Al Rahba Hospital",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11451,
+                          "y": 8572.5,
+                          "width": 133,
+                          "height": 13
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "175:1981",
+            "name": "Mosque",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10596,
+              "y": 8578,
+              "width": 98,
+              "height": 131
+            },
+            "children": [
+              {
+                "id": "175:2828",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10596,
+                  "y": 8687,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2935",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10596,
+                      "y": 8687,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2936",
+                        "name": "circle1061 2",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10596,
+                          "y": 8687,
+                          "width": 22,
+                          "height": 22
+                        }
+                      },
+                      {
+                        "id": "175:2937",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10606.67,
+                          "y": 8693.29,
+                          "width": 5.07,
+                          "height": 4.91
+                        }
+                      },
+                      {
+                        "id": "175:2938",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10599.82,
+                          "y": 8690.74,
+                          "width": 14.38,
+                          "height": 14.36
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2830",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10624,
+                      "y": 8687,
+                      "width": 117,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2831",
+                        "name": "Al Hamd Mosque",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10636,
+                          "y": 8691.5,
+                          "width": 93,
+                          "height": 13
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2832",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10672,
+                  "y": 8578,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2928",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10672,
+                      "y": 8578,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2929",
+                        "name": "circle1061 2",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10672,
+                          "y": 8578,
+                          "width": 22,
+                          "height": 22
+                        }
+                      },
+                      {
+                        "id": "175:2930",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10682.67,
+                          "y": 8584.29,
+                          "width": 5.07,
+                          "height": 4.91
+                        }
+                      },
+                      {
+                        "id": "175:2931",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10675.82,
+                          "y": 8581.74,
+                          "width": 14.38,
+                          "height": 14.36
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2834",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10700,
+                      "y": 8578,
+                      "width": 159,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2835",
+                        "name": "Hidd Al Saadiyat Mosque",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10712,
+                          "y": 8582.5,
+                          "width": 135,
+                          "height": 13
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "175:1992",
+            "name": "Retail",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10216,
+              "y": 8841,
+              "width": 297,
+              "height": 92
+            },
+            "children": [
+              {
+                "id": "175:2792",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10216,
+                  "y": 8911,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2924",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10216,
+                      "y": 8911,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2925",
+                        "name": "Group 54264",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10216,
+                          "y": 8911,
+                          "width": 22,
+                          "height": 22
+                        },
+                        "children": [
+                          {
+                            "id": "175:2926",
+                            "name": "Ellipse 28",
+                            "type": "ELLIPSE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10216,
+                              "y": 8911,
+                              "width": 22,
+                              "height": 22
+                            }
+                          },
+                          {
+                            "id": "175:2927",
+                            "name": "Retail",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10221,
+                              "y": 8916,
+                              "width": 12,
+                              "height": 12
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2794",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10244,
+                      "y": 8911,
+                      "width": 132,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2795",
+                        "name": "Marina Mall Ring Rd",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10256,
+                          "y": 8915.5,
+                          "width": 108,
+                          "height": 13
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2796",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10491,
+                  "y": 8841,
+                  "width": 22,
+                  "height": 22
+                },
+                "children": [
+                  {
+                    "id": "175:2920",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10491,
+                      "y": 8841,
+                      "width": 22,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2921",
+                        "name": "Group 54264",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10491,
+                          "y": 8841,
+                          "width": 22,
+                          "height": 22
+                        },
+                        "children": [
+                          {
+                            "id": "175:2922",
+                            "name": "Ellipse 28",
+                            "type": "ELLIPSE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10491,
+                              "y": 8841,
+                              "width": 22,
+                              "height": 22
+                            }
+                          },
+                          {
+                            "id": "175:2923",
+                            "name": "Retail",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10496,
+                              "y": 8846,
+                              "width": 12,
+                              "height": 12
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2798",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10519,
+                      "y": 8841,
+                      "width": 99,
+                      "height": 22
+                    },
+                    "children": [
+                      {
+                        "id": "175:2799",
+                        "name": "Shams Boutik",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10531,
+                          "y": 8845.5,
+                          "width": 75,
+                          "height": 13
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "175:2001",
+        "name": "Pins_Hover_Mobile",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 10206,
+          "y": 8558,
+          "width": 1235,
+          "height": 385
+        },
+        "children": [
+          {
+            "id": "175:2003",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10490,
+              "y": 8686,
+              "width": 775,
+              "height": 150
+            },
+            "children": [
+              {
+                "id": "175:2801",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10490,
+                  "y": 8796,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2917",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10490,
+                      "y": 8796,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2918",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10490,
+                          "y": 8796,
+                          "width": 40,
+                          "height": 40
+                        }
+                      },
+                      {
+                        "id": "175:2919",
+                        "name": "School",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10497.64,
+                          "y": 8806.18,
+                          "width": 24.73,
+                          "height": 19.64
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2805",
+                    "name": "Name L",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10238.6,
+                      "y": 8779.05,
+                      "width": 245.4,
+                      "height": 73.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2806",
+                        "name": "Repton School\nAbu Dhabi\r",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10263.8,
+                          "y": 8788.5,
+                          "width": 195,
+                          "height": 55
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2808",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 11225,
+                  "y": 8686,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2914",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11225,
+                      "y": 8686,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2915",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11225,
+                          "y": 8686,
+                          "width": 40,
+                          "height": 40
+                        }
+                      },
+                      {
+                        "id": "175:2916",
+                        "name": "School",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11232.64,
+                          "y": 8696.18,
+                          "width": 24.73,
+                          "height": 19.64
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2812",
+                    "name": "Name L",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10812.6,
+                      "y": 8682.55,
+                      "width": 406.4,
+                      "height": 46.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2813",
+                        "name": "Amity International School",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10837.8,
+                          "y": 8692,
+                          "width": 356,
+                          "height": 28
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "175:2012",
+            "name": "Health",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10296,
+              "y": 8558,
+              "width": 1145,
+              "height": 385
+            },
+            "children": [
+              {
+                "id": "175:2815",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10296,
+                  "y": 8903,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2818",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10342,
+                      "y": 8886.05,
+                      "width": 470.4,
+                      "height": 73.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2819",
+                        "name": "Emirates Hospital Day Surgery,  Al Khalidiyah",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10367.2,
+                          "y": 8895.5,
+                          "width": 420,
+                          "height": 55
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2904",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10296,
+                      "y": 8903,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2905",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10296,
+                          "y": 8903,
+                          "width": 40,
+                          "height": 40
+                        }
+                      },
+                      {
+                        "id": "175:2906",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10308.51,
+                          "y": 8914.2,
+                          "width": 14.15,
+                          "height": 17.82
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2822",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 11401,
+                  "y": 8558,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2911",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11401,
+                      "y": 8558,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2912",
+                        "name": "Ellipse 28",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11401,
+                          "y": 8558,
+                          "width": 40,
+                          "height": 40
+                        }
+                      },
+                      {
+                        "id": "175:2913",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11413.51,
+                          "y": 8569.2,
+                          "width": 14.15,
+                          "height": 17.82
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2826",
+                    "name": "Name L",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11131.6,
+                      "y": 8541.05,
+                      "width": 263.4,
+                      "height": 73.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2827",
+                        "name": "Seha - Al Rahba Hospital",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11156.8,
+                          "y": 8550.5,
+                          "width": 213,
+                          "height": 55
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "175:2019",
+            "name": "Mosque",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10586,
+              "y": 8568,
+              "width": 116,
+              "height": 149
+            },
+            "children": [
+              {
+                "id": "175:2766",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10586,
+                  "y": 8677,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2769",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10632,
+                      "y": 8673.55,
+                      "width": 282.4,
+                      "height": 46.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2770",
+                        "name": "Al Hamd Mosque",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10657.2,
+                          "y": 8683,
+                          "width": 232,
+                          "height": 28
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2900",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10586,
+                      "y": 8677,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2901",
+                        "name": "circle1061 2",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10586,
+                          "y": 8677,
+                          "width": 40,
+                          "height": 40
+                        }
+                      },
+                      {
+                        "id": "175:2902",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10605.4,
+                          "y": 8688.43,
+                          "width": 9.22,
+                          "height": 8.93
+                        }
+                      },
+                      {
+                        "id": "175:2903",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10592.94,
+                          "y": 8683.79,
+                          "width": 26.15,
+                          "height": 26.11
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2773",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10662,
+                  "y": 8568,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2776",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10708,
+                      "y": 8551.05,
+                      "width": 271.4,
+                      "height": 73.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2777",
+                        "name": "Hidd Al Saadiyat Mosque",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10733.2,
+                          "y": 8560.5,
+                          "width": 221,
+                          "height": 55
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2896",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10662,
+                      "y": 8568,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2897",
+                        "name": "circle1061 2",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10662,
+                          "y": 8568,
+                          "width": 40,
+                          "height": 40
+                        }
+                      },
+                      {
+                        "id": "175:2898",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10681.4,
+                          "y": 8579.43,
+                          "width": 9.22,
+                          "height": 8.93
+                        }
+                      },
+                      {
+                        "id": "175:2899",
+                        "name": "Vector",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10668.94,
+                          "y": 8574.79,
+                          "width": 26.15,
+                          "height": 26.11
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "175:2030",
+            "name": "Retail",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10206,
+              "y": 8831,
+              "width": 315,
+              "height": 110
+            },
+            "children": [
+              {
+                "id": "175:2840",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10206,
+                  "y": 8901,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2841",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10252,
+                      "y": 8884.05,
+                      "width": 209.4,
+                      "height": 73.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2842",
+                        "name": "Marina Mall Ring Rd",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10277.2,
+                          "y": 8893.5,
+                          "width": 159,
+                          "height": 55
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2907",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10206,
+                      "y": 8901,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2908",
+                        "name": "Group 54264",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10206,
+                          "y": 8901,
+                          "width": 40,
+                          "height": 40
+                        },
+                        "children": [
+                          {
+                            "id": "175:2909",
+                            "name": "Ellipse 28",
+                            "type": "ELLIPSE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10206,
+                              "y": 8901,
+                              "width": 40,
+                              "height": 40
+                            }
+                          },
+                          {
+                            "id": "175:2910",
+                            "name": "Retail",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10215.09,
+                              "y": 8910.09,
+                              "width": 21.82,
+                              "height": 21.82
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "175:2836",
+                "name": "Pins ",
+                "type": "FRAME",
+                "visible": true,
+                "bbox": {
+                  "x": 10481,
+                  "y": 8831,
+                  "width": 40,
+                  "height": 40
+                },
+                "children": [
+                  {
+                    "id": "175:2837",
+                    "name": "Name R",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10527,
+                      "y": 8827.55,
+                      "width": 237.4,
+                      "height": 46.9
+                    },
+                    "children": [
+                      {
+                        "id": "175:2838",
+                        "name": "Shams Boutik",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10552.2,
+                          "y": 8837,
+                          "width": 187,
+                          "height": 28
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "175:2892",
+                    "name": "Icon",
+                    "type": "FRAME",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10481,
+                      "y": 8831,
+                      "width": 40,
+                      "height": 40
+                    },
+                    "children": [
+                      {
+                        "id": "175:2893",
+                        "name": "Group 54264",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10481,
+                          "y": 8831,
+                          "width": 40,
+                          "height": 40
+                        },
+                        "children": [
+                          {
+                            "id": "175:2894",
+                            "name": "Ellipse 28",
+                            "type": "ELLIPSE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10481,
+                              "y": 8831,
+                              "width": 40,
+                              "height": 40
+                            }
+                          },
+                          {
+                            "id": "175:2895",
+                            "name": "Retail",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10490.09,
+                              "y": 8840.09,
+                              "width": 21.82,
+                              "height": 21.82
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "dumpedAt": "2026-05-25T12:58:31.470Z",
+    "selectionName": "Pins_Hover",
+    "selectionType": "GROUP",
+    "nodeCount": 115,
+    "maxDepth": 0,
+    "includeHidden": false,
+    "includeBBox": true
+  }
+}

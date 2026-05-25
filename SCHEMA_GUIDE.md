@@ -211,6 +211,253 @@
 
 ---
 
+### Схема 6: Map Streets
+
+**ID:** `streets` | **Файлы:** `src/plugin/schemas/streets.ts`, `streets-detect.ts`  
+**Выход:** `export default { streets: [...] }`
+
+#### Структура Figma:
+```
+[Streets]
+├── Streets_Desktop             ← viewport (nameIncludes 'desktop')
+│   └── [lang] ?                ← GROUP с ISO-кодом (en, ar, …)
+│       └── [Street Name]       ← FRAME — SVG-элемент улицы
+│           └── VECTOR
+└── Streets_Mobile              ← viewport (nameIncludes 'mobile')
+    └── [lang] ?
+        └── [Street Name]       ← FRAME — SVG-элемент улицы
+            └── VECTOR
+```
+
+#### Выходной объект (один на комбинацию street × lang):
+```js
+{
+    language: ["en"],                                  // только если есть языковые слои
+    svg: "sheikh_maktoum_bin_rashid_road_street_en",   // Desktop SVG
+    left: 1372,                                        // Desktop bbox.x - originX
+    top: 1244,                                         // Desktop bbox.y - originY
+    width: 96,
+    height: 180,
+    breakpoints: {
+        768: {
+            left: 1353,                                // Mobile bbox
+            top: 1207,
+            width: 132,
+            height: 248,
+            svg: "sheikh_maktoum_bin_rashid_road_street_mob_en",
+        }
+    }
+}
+```
+
+#### SVG-имена (Streets):
+- Без языков: `{code}_street` / `{code}_street_mob`
+- С языками: `{code}_street_{lang}` / `{code}_street_mob_{lang}` — **суффикс всегда, даже для `en`**
+
+#### Порядок элементов в выводе:
+- Для каждого `code` (в порядке desktop → mobile): для каждого `lang` (в порядке lang-групп desktop)
+- Итог: `street1_en`, `street1_ar`, `street2_en`, `street2_ar`, …
+
+#### Особенности:
+- Нет зум-слоёв — улицы не зависят от уровня масштаба
+- Нет отдельного Anchor — FRAME улицы сам является SVG-элементом с координатами
+- Весь FRAME (включая VECTOR внутри) экспортируется как один SVG
+- `isStreetsContainerName(name)`: включает "street", исключает "mobile"/"mob"/"desktop"/"desk"
+- SVG config folder: `streets`
+
+#### Варианты структуры (авто-определяет `detectStreetsStructure`):
+| Вариант | Флаги |
+|---|---|
+| `viewports` | только Mobile/Desktop |
+| `viewports+languages` | + языковые слои |
+
+---
+
+### Схема 7: Map Districts
+
+**ID:** `districts` | **Файлы:** `src/plugin/schemas/districts.ts`, `districts-detect.ts`  
+**Выход:** `export default { districts: [...] }`
+
+#### Структура Figma (4 авто-определяемых варианта):
+```
+[Districts]
+├── Districts_Desktop          ← viewport (nameIncludes 'desktop')
+│   └── [lang] ?               ← GROUP с ISO-кодом (en, ar, …)
+│       └── [Zoom N] ?         ← GROUP/FRAME "zoom_1", "Zoom 2", …
+│           └── [District Name]  ← FRAME — SVG-элемент района (зона + текст)
+│               ├── VECTOR     ← контур зоны
+│               └── TEXT       ← название района
+└── Districts_Mobile           ← viewport (nameIncludes 'mobile')
+    └── ...
+```
+
+#### Выходной объект (один на комбинацию district × lang × zoom):
+```js
+{
+    language: ["en"],                    // только если есть языковые слои
+    zoom: 1,                             // только если есть зум-слои (raw level)
+    svg: "yas_island_district_zoom_1",   // Desktop SVG
+    left: 1161,                          // Desktop bbox.x - originX
+    top: 800.5,
+    width: 205,
+    height: 236.5,
+    breakpoints: {
+        768: {
+            left: ...,                   // Mobile bbox
+            top: ...,
+            width: ...,
+            height: ...,
+            svg: "yas_island_district_mob_zoom_1",
+        }
+    }
+}
+```
+
+#### SVG-имена (Districts):
+- `{code}_district[_mob][_{lang}][_zoom_{N}]`
+- Без языков, без zoom: `{code}_district` / `{code}_district_mob`
+- С языком en, без zoom: `{code}_district_en` / `{code}_district_mob_en`
+- С языком en, zoom 1: `{code}_district_en_zoom_1` / `{code}_district_mob_en_zoom_1`
+
+#### Порядок элементов в выводе:
+- Для каждого `code` → для каждого `lang` → для каждого `zoom`
+- `code` в порядке desktop → mobile; `lang` в порядке lang-групп desktop; `zoom` в порядке zoom-фреймов desktop
+
+#### Особенности:
+- Весь FRAME района (с VECTOR + TEXT внутри) экспортируется как один SVG
+- `isDistrictsContainerName(name)`: включает "district", исключает "mobile"/"mob"/"desktop"/"desk"
+- Zoom детектируется рекурсивно: прямой дочерний viewport ИЛИ дочерний language-группы
+- Переиспользует `getLanguageFrames`, `getZoomFrames` из `landmarks-detect.ts`
+- SVG config folder: `districts`
+
+#### Варианты структуры (авто-определяет `detectDistrictsStructure`):
+| Вариант | Флаги |
+|---|---|
+| `viewports` | только Mobile/Desktop — **дамп в `examples/dumps/districts.json`** |
+| `viewports+languages` | + языковые слои |
+| `viewports+zooms` | + зум-слои |
+| `viewports+languages+zooms` | полная структура |
+
+---
+
+### Схема 8: Map Pins
+
+**ID:** `pins` | **Файлы:** `src/plugin/schemas/pins.ts`, `pins-detect.ts`
+**Выход:** `export default { map_pins: { map_<group>: { ... }, ... } }`
+
+Пины — интерактивные кружочки на карте с появляющейся подписью при наведении.
+Делятся на **группы** по категории (`Education`, `Health`, `Mosque`, `Retail`, …),
+каждая группа имеет свою SVG-иконку и размер кружочка; внутри группы — массив пинов
+с уникальной позицией, подписью и направлением подписи (`isRight`).
+
+#### Структура Figma (4 авто-определяемых варианта):
+```
+[Pins / Pins_Hover / …]            ← root (nameIncludes 'pin', НЕ viewport)
+├── Pins_Desktop                    ← viewport (nameIncludes 'desktop')
+│   └── [lang] ?                    ← GROUP с ISO-кодом (en, ar, …)
+│       └── [Zoom N] ?              ← GROUP/FRAME "zoom_1", "Zoom 2", …
+│           ├── Education           ← группа пинов (любое имя; slug → 'map_education')
+│           │   ├── Pins            ← пин-фрейм
+│           │   │   ├── Icon        ← FRAME содержит "icon" (кружочек + svg)
+│           │   │   └── Name L/R/Hover/…  ← FRAME с TEXT-нодой внутри
+│           │   └── Pins
+│           ├── Health
+│           ├── Mosque
+│           └── Retail
+└── Pins_Mobile                     ← viewport (nameIncludes 'mobile')
+    └── ...та же иерархия
+```
+
+#### Структура выхода:
+```js
+export default {
+    map_pins: {
+        map_education: {
+            svg: "map_pin_education",        // SVG иконки группы (desktop)
+            iconWidth: 22,                    // ширина кружочка desktop
+            iconHeight: 22,
+            breakpoints: {
+                768: {
+                    svg: "map_pin_education_mob",
+                    iconWidth: 40,
+                    iconHeight: 40,
+                },
+            },
+            pins: [
+                {
+                    language: ["en"],          // только если есть language-слои
+                    zoom: 1,                   // только если есть zoom-слои (raw level)
+                    left: 637,                 // ЦЕНТР Icon на карте (desktop)
+                    top: 839,
+                    isRight: false,            // подпись справа от пина?
+                    text: "repton_school_abu_dhabi",
+                    breakpoints: {
+                        768: {
+                            left: 646,
+                            top: 848,
+                            isRight: false,    // может отличаться от desktop
+                        },
+                    },
+                },
+                ...
+            ],
+        },
+        map_health:    { svg, iconWidth, iconHeight, breakpoints, pins: [...] },
+        map_mosque:    { svg, iconWidth, iconHeight, breakpoints, pins: [...] },
+        map_retail:    { svg, iconWidth, iconHeight, breakpoints, pins: [...] },
+    },
+}
+```
+
+#### Поля per-group (общие для всех пинов группы):
+| Поле | Источник |
+|---|---|
+| `svg` / `breakpoints.768.svg` | Имена SVG-файлов иконки: `map_pin_{group}` / `map_pin_{group}_mob` |
+| `iconWidth`, `iconHeight` | Из bbox `Icon` фрейма первого пина группы (desktop/mobile) |
+
+#### Поля per-pin (уникальные для каждого пина):
+| Поле | Источник |
+|---|---|
+| `left`, `top` | **Центр** Icon-фрейма: `bbox.x + width/2 - originX`, `bbox.y + height/2 - originY` |
+| `isRight` | `Name.center.x > Icon.center.x` (не по имени Name L/R, а по реальной позиции) |
+| `text` | Slug от `characters` TEXT-ноды внутри Name-фрейма |
+| `language` | Только если есть language-слои |
+| `zoom` | Только если есть zoom-слои (raw level из `zoom_N`) |
+
+#### SVG-имена (Pins):
+- `map_pin_{group}` (desktop) / `map_pin_{group}_mob` (mobile)
+- Не зависят от lang/zoom (иконка категории одинакова)
+- Экспортируется по 2 файла на группу — нода Icon из первого встретившегося пина в desktop / mobile
+
+#### Сопоставление desktop ↔ mobile пинов:
+- По ключу `${text}|${lang}|${zoom}` — slug TEXT-ноды + lang + zoom
+- Slug устойчив к различиям пробелов/переносов между desktop и mobile
+
+#### Порядок элементов в выводе:
+- Группы: в порядке desktop → mobile (первое появление в leaf-контейнере)
+- Внутри группы — `pins[]`: для каждого `text` → для каждого `lang` → для каждого `zoom`
+
+#### Особенности:
+- `isPinsContainerName(name)`: включает "pin", исключает "mobile"/"mob"/"desktop"/"desk"
+  (чтобы `Pins_Hover_Desktop` распознавался как viewport, а не как root)
+- `isPinGroupCandidate(node)`: leaf-группа = ребёнок viewport/lang/zoom-ветки, у которого
+  имя НЕ language/zoom/viewport/pin (т.е. `Education`, `Health`, …)
+- Внутри пин-фрейма Icon — это child с именем содержащим "icon"; Name — любой другой
+  FRAME/GROUP/INSTANCE child (имя может быть "Name L", "Name R", "Hover" — не важно)
+- Пин без Icon, без Name или с пустым текстом — пропускается с warning в лог
+- Переиспользует `getLanguageFrames`, `getZoomFrames` из `landmarks-detect.ts`
+- SVG config folder: `pins`
+
+#### Варианты структуры (авто-определяет `detectPinsStructure`):
+| Вариант | Флаги |
+|---|---|
+| `viewports` | только Mobile/Desktop — **дамп в `examples/dumps/pins.json`** |
+| `viewports+languages` | + языковые слои |
+| `viewports+zooms` | + зум-слои |
+| `viewports+languages+zooms` | полная структура |
+
+---
+
 ## Часть 2 — Правила создания новых схем
 
 ### Правило 1: Файловая структура

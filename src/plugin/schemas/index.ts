@@ -5,6 +5,9 @@ import { parseLandmarksV2 } from './landmarks-v2';
 import { parseProjects } from './projects';
 import { parsePaths } from './paths';
 import { parseRadius } from './radius';
+import { parseStreets } from './streets';
+import { parseDistricts } from './districts';
+import { parsePins } from './pins';
 import type { ParseResult, SchemaInfo } from '../types';
 
 // ─── Schema registry ───────────────────────────────────────
@@ -50,6 +53,27 @@ export const SCHEMAS: Schema[] = [
     description:
       'Радиусы расстояний от проектов. Структура: Radius → {project} → Mobile/Desktop → [lang]. Авто-определение Viewports / Languages (2 варианта)',
     parse: parseRadius,
+  },
+  {
+    id: 'streets',
+    name: 'Map Streets',
+    description:
+      'Названия улиц на карте. Структура: Streets → Desktop/Mobile → [lang] → {street frame}. Авто-определение Viewports / Languages (2 варианта)',
+    parse: parseStreets,
+  },
+  {
+    id: 'districts',
+    name: 'Map Districts',
+    description:
+      'Районы карты. Структура: Districts → Desktop/Mobile → [lang] → [zoom] → {district frame}. Авто-определение Viewports / Languages / Zooms (4 варианта)',
+    parse: parseDistricts,
+  },
+  {
+    id: 'pins',
+    name: 'Map Pins',
+    description:
+      'Пины POI (retail/health/education/...). Структура: Pins → Desktop/Mobile → [lang] → [zoom] → {group} → {pin: Icon + Name/Hover}. Авто-определение Viewports / Languages / Zooms (4 варианта). isRight вычисляется по позиции Name относительно Icon.',
+    parse: parsePins,
   },
 ];
 

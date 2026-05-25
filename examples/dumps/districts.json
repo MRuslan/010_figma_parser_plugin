@@ -1,0 +1,357 @@
+{
+  "root": {
+    "id": "169:1403",
+    "name": "Districts",
+    "type": "GROUP",
+    "visible": true,
+    "bbox": {
+      "x": 10231,
+      "y": 8529,
+      "width": 1017,
+      "height": 771
+    },
+    "children": [
+      {
+        "id": "169:1404",
+        "name": "Districts_Desktop",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 10231,
+          "y": 8529,
+          "width": 1017,
+          "height": 771
+        },
+        "children": [
+          {
+            "id": "169:1406",
+            "name": "Yas Island Island",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 11025,
+              "y": 8768.5,
+              "width": 205,
+              "height": 236.5
+            },
+            "children": [
+              {
+                "id": "169:1407",
+                "name": "Yas Island zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 11026.75,
+                  "y": 8768.5,
+                  "width": 201.45,
+                  "height": 236.5
+                }
+              },
+              {
+                "id": "169:1408",
+                "name": "Yas Island",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 11119,
+                  "y": 8816,
+                  "width": 48.55,
+                  "height": 31.49
+                }
+              }
+            ]
+          },
+          {
+            "id": "169:1409",
+            "name": "Saadiyat Island",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 10463,
+              "y": 8529,
+              "width": 269,
+              "height": 332
+            },
+            "children": [
+              {
+                "id": "169:1410",
+                "name": "Saadiyat Island zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 10464.1,
+                  "y": 8529,
+                  "width": 266.82,
+                  "height": 331.06
+                }
+              },
+              {
+                "id": "169:1411",
+                "name": "Saadiyat Island",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 10572,
+                  "y": 8711,
+                  "width": 65.17,
+                  "height": 32.03
+                }
+              }
+            ]
+          },
+          {
+            "id": "169:1412",
+            "name": "Khalifa City",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 10822,
+              "y": 9023,
+              "width": 426,
+              "height": 195
+            },
+            "children": [
+              {
+                "id": "169:1413",
+                "name": "Khalifa City zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 10822.73,
+                  "y": 9023.83,
+                  "width": 423.6,
+                  "height": 193.19
+                }
+              },
+              {
+                "id": "169:1414",
+                "name": "khalifa city",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 11025,
+                  "y": 9120,
+                  "width": 42,
+                  "height": 24
+                }
+              }
+            ]
+          },
+          {
+            "id": "169:1415",
+            "name": "Hudayriat Island",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 10231,
+              "y": 9027,
+              "width": 442,
+              "height": 273
+            },
+            "children": [
+              {
+                "id": "169:1416",
+                "name": "Hudayriat Island zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 10232,
+                  "y": 9028,
+                  "width": 440,
+                  "height": 271
+                }
+              },
+              {
+                "id": "169:1417",
+                "name": "Hudayriyat Island",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 10412,
+                  "y": 9163,
+                  "width": 66,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "169:1418",
+        "name": "Districts_Mobile",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 10231,
+          "y": 8529,
+          "width": 1017,
+          "height": 771
+        },
+        "children": [
+          {
+            "id": "169:1420",
+            "name": "Yas Island Island",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 11025,
+              "y": 8768.5,
+              "width": 205,
+              "height": 236.5
+            },
+            "children": [
+              {
+                "id": "169:1421",
+                "name": "Yas Island zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 11026.75,
+                  "y": 8768.5,
+                  "width": 201.45,
+                  "height": 236.5
+                }
+              },
+              {
+                "id": "169:1422",
+                "name": "Yas Island",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 11161,
+                  "y": 8850,
+                  "width": 59,
+                  "height": 38
+                }
+              }
+            ]
+          },
+          {
+            "id": "169:1423",
+            "name": "Saadiyat Island",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 10463,
+              "y": 8529,
+              "width": 269,
+              "height": 332
+            },
+            "children": [
+              {
+                "id": "169:1424",
+                "name": "Saadiyat Island zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 10464.1,
+                  "y": 8529,
+                  "width": 266.82,
+                  "height": 331.06
+                }
+              },
+              {
+                "id": "169:1425",
+                "name": "Saadiyat Island",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 10567,
+                  "y": 8710,
+                  "width": 79,
+                  "height": 38
+                }
+              }
+            ]
+          },
+          {
+            "id": "169:1426",
+            "name": "Khalifa City",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 10822,
+              "y": 9023,
+              "width": 426,
+              "height": 195
+            },
+            "children": [
+              {
+                "id": "169:1427",
+                "name": "Khalifa City zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 10822.73,
+                  "y": 9023.83,
+                  "width": 423.6,
+                  "height": 193.19
+                }
+              },
+              {
+                "id": "169:1428",
+                "name": "khalifa city",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 10923,
+                  "y": 9132,
+                  "width": 67,
+                  "height": 38
+                }
+              }
+            ]
+          },
+          {
+            "id": "169:1429",
+            "name": "Hudayriat Island",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 10231,
+              "y": 9027,
+              "width": 442,
+              "height": 273
+            },
+            "children": [
+              {
+                "id": "169:1430",
+                "name": "Hudayriat Island zone",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 10232,
+                  "y": 9028,
+                  "width": 440,
+                  "height": 271
+                }
+              },
+              {
+                "id": "169:1431",
+                "name": "Hudayriyat Island",
+                "type": "TEXT",
+                "visible": true,
+                "bbox": {
+                  "x": 10395,
+                  "y": 9162,
+                  "width": 100,
+                  "height": 34
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "dumpedAt": "2026-05-25T12:06:43.919Z",
+    "selectionName": "Districts",
+    "selectionType": "GROUP",
+    "nodeCount": 27,
+    "maxDepth": 0,
+    "includeHidden": false,
+    "includeBBox": true
+  }
+}
