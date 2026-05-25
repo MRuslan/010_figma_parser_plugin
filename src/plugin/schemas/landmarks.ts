@@ -482,7 +482,7 @@ export function parseLandmarks(selectedNode: SceneNode): ParseResult {
   let svgConfig: string | null = null;
   if (svgExports.length > 0) {
     const entries = svgExports
-      .map(({ name }) => `\t"${name}": "./svg/map/[name_map]/landmarks/${name}"`)
+      .map(({ name }) => `\t"${name}": "./svg/map/[name_map]/landmarks/${name}.svg"`)
       .join(',\n');
     svgConfig = `export default {\n${entries},\n};\n`;
     logs.push({ step: `SVG конфиг: ${svgExports.length} файлов`, status: 'info' });
@@ -490,5 +490,5 @@ export function parseLandmarks(selectedNode: SceneNode): ParseResult {
 
   logs.push({ step: 'Парсинг завершён ✓', status: 'success' });
 
-  return { output, svgConfig, svgExports, logs, errors };
+  return { output, svgConfig, svgExports, svgFolder: 'landmarks', logs, errors };
 }

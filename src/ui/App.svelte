@@ -19,6 +19,7 @@
   let output: string | null = null;
   let svgConfig: string | null = null;
   let svgExports: SvgExportItem[] | null = null;
+  let svgFolder: string | null = null;
   let errors: string[] = [];
   let isParsing = false;
   let isDownloading = false;
@@ -73,6 +74,7 @@
         output = msg.output;
         svgConfig = msg.svgConfig;
         svgExports = msg.svgExports;
+        svgFolder = msg.svgFolder ?? null;
         errors = msg.errors;
         isParsing = false;
         activeTab = 'config';
@@ -124,6 +126,7 @@
     output = null;
     svgConfig = null;
     svgExports = null;
+    svgFolder = null;
     errors = [];
     isParsing = true;
     activeTab = 'config';
@@ -179,9 +182,10 @@
     svgPhase = 'packing';
     svgPackPercent = 0;
 
+    const folder = svgFolder ?? 'svg';
     const zip = new JSZip();
     for (const file of files) {
-      zip.file(`${file.name}.svg`, new Uint8Array(file.data));
+      zip.file(`${folder}/${file.name}.svg`, new Uint8Array(file.data));
     }
 
     const blob = await zip.generateAsync(
@@ -196,7 +200,7 @@
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'landmarks-svg.zip';
+    a.download = `${folder}-svg.zip`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -208,6 +212,32 @@
       isDownloading = false;
       svgPhase = 'idle';
     }, 1500);
+  }
+
+  function clearResults(): void {
+    logs = [];
+    output = null;
+    svgConfig = null;
+    svgExports = null;
+    svgFolder = null;
+    errors = [];
+    activeTab = 'config';
+    copiedConfig = false;
+    copiedSvg = false;
+    if (!isDownloading) {
+      svgExportDone = 0;
+      svgExportTotal = 0;
+      svgExportCurrentName = '';
+      svgPackPercent = 0;
+      svgPhase = 'idle';
+    }
+  }
+
+  function clearDump(): void {
+    structureDump = null;
+    structureDumpJson = null;
+    structureDumpError = null;
+    copiedDump = false;
   }
 
   function closePlugin(): void {
@@ -272,6 +302,8 @@
   $: canParse = !!selectionData && !!selectedSchemaId && !isParsing;
   $: canDump = !!selectionData && !isDumping;
   $: hasSvg = !!svgConfig && !!svgExports && svgExports.length > 0;
+  $: canClear = (logs.length > 0 || output !== null || errors.length > 0 || svgConfig !== null) && !isParsing;
+  $: canClearDump = (structureDump !== null || structureDumpError !== null) && !isDumping;
 
   const statusIcon: Record<string, string> = {
     success: '✓',
@@ -329,13 +361,20 @@
 
   <!-- Action button -->
   <section class="section action-section">
-    <button class="btn btn-primary" on:click={startParsing} disabled={!canParse}>
-      {#if isParsing}
-        <span class="spinner">◌</span> Парсинг...
-      {:else}
-        Запустить парсинг
+    <div class="action-row">
+      <button class="btn btn-primary" on:click={startParsing} disabled={!canParse}>
+        {#if isParsing}
+          <span class="spinner">◌</span> Парсинг...
+        {:else}
+          Запустить парсинг
+        {/if}
+      </button>
+      {#if canClear}
+        <button class="btn btn-clear" on:click={clearResults} title="Сбросить логи и результат">
+          Очистить
+        </button>
       {/if}
-    </button>
+    </div>
   </section>
 
   <!-- Developer: structure dump -->
@@ -381,13 +420,20 @@
         </label>
       </div>
 
-      <button class="btn btn-dev" on:click={startStructureDump} disabled={!canDump}>
-        {#if isDumping}
-          <span class="spinner">◌</span> Дамп...
-        {:else}
-          Dump structure
+      <div class="action-row">
+        <button class="btn btn-dev" on:click={startStructureDump} disabled={!canDump}>
+          {#if isDumping}
+            <span class="spinner">◌</span> Дамп...
+          {:else}
+            Dump structure
+          {/if}
+        </button>
+        {#if canClearDump}
+          <button class="btn btn-clear btn-clear-dev" on:click={clearDump} title="Сбросить результат дампа">
+            Очистить
+          </button>
         {/if}
-      </button>
+      </div>
 
       {#if structureDumpError}
         <div class="dev-error">{structureDumpError}</div>
@@ -634,6 +680,26 @@
 
   /* ── Action ── */
   .action-section { border-bottom: none; }
+  .action-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .action-row .btn-primary { flex: 1; }
+  .btn-clear {
+    padding: 9px 14px;
+    background: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .btn-clear:hover { color: #555; border-color: #bbb; background: #f5f5f5; }
 
   /* ── Developer dump ── */
   .dev-section { background: #faf9ff; }
@@ -706,6 +772,9 @@
     justify-content: center;
   }
   .btn-dev:hover:not(:disabled) { background: #e6e0ff; }
+  .action-row .btn-dev { flex: 1; width: auto; }
+  .btn-clear-dev { border-color: #d4cbff; }
+  .btn-clear-dev:hover { background: #f0edff; border-color: #c4b5ff; color: #5a45c4; }
   .dev-error {
     margin-top: 8px;
     padding: 6px 10px;

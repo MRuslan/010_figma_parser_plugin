@@ -30,6 +30,7 @@ export interface ParseResult {
   output: string | null;      // formatted JS object string, or null on failure
   svgConfig: string | null;   // SVG paths config JS string, or null if no SVGs
   svgExports: SvgExportItem[] | null; // list of SVG files to export, or null
+  svgFolder?: string;         // subfolder for SVG archive (e.g. "landmarks", "projects")
   logs: LogEntry[];
   errors: string[];
 }
@@ -90,7 +91,7 @@ export type MessageToUI =
   | { type: 'SELECTION_DATA'; data: FigmaNodeInfo | null }
   | { type: 'SCHEMAS_LIST'; schemas: SchemaInfo[] }
   | { type: 'PARSE_PROGRESS'; step: string; status: LogStatus }
-  | { type: 'PARSE_RESULT'; output: string | null; svgConfig: string | null; svgExports: SvgExportItem[] | null; errors: string[] }
+  | { type: 'PARSE_RESULT'; output: string | null; svgConfig: string | null; svgExports: SvgExportItem[] | null; svgFolder?: string; errors: string[] }
   | { type: 'SVG_EXPORT_PROGRESS'; done: number; total: number; currentName: string }
   | { type: 'SVG_DATA'; files: { name: string; data: number[] }[] }
   | { type: 'STRUCTURE_DUMP_RESULT'; result: StructureDumpResult | null; error: string | null }

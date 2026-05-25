@@ -1,0 +1,1095 @@
+{
+  "root": {
+    "id": "149:1441",
+    "name": "Radius",
+    "type": "GROUP",
+    "visible": true,
+    "bbox": {
+      "x": 10544,
+      "y": 8127,
+      "width": 1431.55,
+      "height": 1431.28
+    },
+    "children": [
+      {
+        "id": "156:1259",
+        "name": "Sobha City",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 10544,
+          "y": 8127,
+          "width": 1431.55,
+          "height": 1431.28
+        },
+        "children": [
+          {
+            "id": "149:1442",
+            "name": "Radius_Desktop ",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10725,
+              "y": 8330,
+              "width": 1070.31,
+              "height": 1025.04
+            },
+            "children": [
+              {
+                "id": "149:1443",
+                "name": "ar",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 10725,
+                  "y": 8330,
+                  "width": 1070.31,
+                  "height": 1025.04
+                },
+                "children": [
+                  {
+                    "id": "149:1444",
+                    "name": "Radius",
+                    "type": "BOOLEAN_OPERATION",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10747.52,
+                      "y": 8330,
+                      "width": 1023.79,
+                      "height": 1025.04
+                    },
+                    "children": [
+                      {
+                        "id": "149:1445",
+                        "name": "Radius",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10746.89,
+                          "y": 8330,
+                          "width": 1025.04,
+                          "height": 1025.04
+                        },
+                        "children": [
+                          {
+                            "id": "149:1446",
+                            "name": "Union",
+                            "type": "BOOLEAN_OPERATION",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10746.89,
+                              "y": 8330,
+                              "width": 1025.04,
+                              "height": 1025.04
+                            },
+                            "children": [
+                              {
+                                "id": "149:1447",
+                                "name": "Ellipse 42",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10914.93,
+                                  "y": 8498.04,
+                                  "width": 689,
+                                  "height": 689
+                                }
+                              },
+                              {
+                                "id": "149:1448",
+                                "name": "Ellipse 43",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10746.89,
+                                  "y": 8330,
+                                  "width": 1025.04,
+                                  "height": 1025.04
+                                }
+                              },
+                              {
+                                "id": "149:1449",
+                                "name": "Ellipse 46",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10746.89,
+                                  "y": 8330,
+                                  "width": 1025.04,
+                                  "height": 1025.04
+                                }
+                              },
+                              {
+                                "id": "149:1450",
+                                "name": "Ellipse 49",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 11076.93,
+                                  "y": 8660.04,
+                                  "width": 365,
+                                  "height": 365
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "149:1451",
+                        "name": "Rectangle 563",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10936.2,
+                          "y": 8800.74,
+                          "width": 292.75,
+                          "height": 60.19
+                        }
+                      },
+                      {
+                        "id": "149:1452",
+                        "name": "Rectangle 565",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11417.5,
+                          "y": 8801.04,
+                          "width": 65,
+                          "height": 60
+                        }
+                      },
+                      {
+                        "id": "149:1453",
+                        "name": "Rectangle 564",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10689.5,
+                          "y": 8792.04,
+                          "width": 241,
+                          "height": 76
+                        }
+                      },
+                      {
+                        "id": "149:1454",
+                        "name": "Rectangle 562",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11590.5,
+                          "y": 8792.04,
+                          "width": 281,
+                          "height": 76
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "149:1455",
+                    "name": "Km",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10725,
+                      "y": 8821.72,
+                      "width": 1070.31,
+                      "height": 20
+                    },
+                    "children": [
+                      {
+                        "id": "149:1456",
+                        "name": "5 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11421.89,
+                          "y": 8821.72,
+                          "width": 38,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "149:1457",
+                        "name": "15 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10725,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "149:1458",
+                        "name": "10 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11578.89,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "149:1459",
+                        "name": "10 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10887,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "149:1460",
+                        "name": "15 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11747.31,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "149:1461",
+                        "name": "5 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11060.42,
+                          "y": 8821.72,
+                          "width": 38,
+                          "height": 20
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "149:1462",
+                    "name": "Ellipse 52",
+                    "type": "ELLIPSE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11256.89,
+                      "y": 8840,
+                      "width": 5.84,
+                      "height": 5.84
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "156:1281",
+                "name": "en",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 10725,
+                  "y": 8330,
+                  "width": 1070.31,
+                  "height": 1025.04
+                },
+                "children": [
+                  {
+                    "id": "156:1282",
+                    "name": "Radius",
+                    "type": "BOOLEAN_OPERATION",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10747.52,
+                      "y": 8330,
+                      "width": 1023.79,
+                      "height": 1025.04
+                    },
+                    "children": [
+                      {
+                        "id": "156:1283",
+                        "name": "Radius",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10746.89,
+                          "y": 8330,
+                          "width": 1025.04,
+                          "height": 1025.04
+                        },
+                        "children": [
+                          {
+                            "id": "156:1284",
+                            "name": "Union",
+                            "type": "BOOLEAN_OPERATION",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10746.89,
+                              "y": 8330,
+                              "width": 1025.04,
+                              "height": 1025.04
+                            },
+                            "children": [
+                              {
+                                "id": "156:1285",
+                                "name": "Ellipse 42",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10914.93,
+                                  "y": 8498.04,
+                                  "width": 689,
+                                  "height": 689
+                                }
+                              },
+                              {
+                                "id": "156:1286",
+                                "name": "Ellipse 43",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10746.89,
+                                  "y": 8330,
+                                  "width": 1025.04,
+                                  "height": 1025.04
+                                }
+                              },
+                              {
+                                "id": "156:1287",
+                                "name": "Ellipse 46",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10746.89,
+                                  "y": 8330,
+                                  "width": 1025.04,
+                                  "height": 1025.04
+                                }
+                              },
+                              {
+                                "id": "156:1288",
+                                "name": "Ellipse 49",
+                                "type": "ELLIPSE",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 11076.93,
+                                  "y": 8660.04,
+                                  "width": 365,
+                                  "height": 365
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "id": "156:1289",
+                        "name": "Rectangle 563",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10936.2,
+                          "y": 8800.74,
+                          "width": 292.75,
+                          "height": 60.19
+                        }
+                      },
+                      {
+                        "id": "156:1290",
+                        "name": "Rectangle 565",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11417.5,
+                          "y": 8801.04,
+                          "width": 65,
+                          "height": 60
+                        }
+                      },
+                      {
+                        "id": "156:1291",
+                        "name": "Rectangle 564",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10689.5,
+                          "y": 8792.04,
+                          "width": 241,
+                          "height": 76
+                        }
+                      },
+                      {
+                        "id": "156:1292",
+                        "name": "Rectangle 562",
+                        "type": "RECTANGLE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11590.5,
+                          "y": 8792.04,
+                          "width": 281,
+                          "height": 76
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "156:1293",
+                    "name": "Km",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10725,
+                      "y": 8821.72,
+                      "width": 1070.31,
+                      "height": 20
+                    },
+                    "children": [
+                      {
+                        "id": "156:1294",
+                        "name": "5 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11421.89,
+                          "y": 8821.72,
+                          "width": 38,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "156:1295",
+                        "name": "15 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10725,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "156:1296",
+                        "name": "10 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11578.89,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "156:1297",
+                        "name": "10 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10887,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "156:1298",
+                        "name": "15 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11747.31,
+                          "y": 8821.72,
+                          "width": 48,
+                          "height": 20
+                        }
+                      },
+                      {
+                        "id": "156:1299",
+                        "name": "5 km",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11060.42,
+                          "y": 8821.72,
+                          "width": 38,
+                          "height": 20
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "156:1300",
+                    "name": "Ellipse 52",
+                    "type": "ELLIPSE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 11256.89,
+                      "y": 8840,
+                      "width": 5.84,
+                      "height": 5.84
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "149:1463",
+            "name": "Radius_Mobile",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 10544,
+              "y": 8127,
+              "width": 1431.55,
+              "height": 1431.28
+            },
+            "children": [
+              {
+                "id": "149:1464",
+                "name": "ar",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 10544,
+                  "y": 8127,
+                  "width": 1431.55,
+                  "height": 1431.28
+                },
+                "children": [
+                  {
+                    "id": "157:1303",
+                    "name": "Radius",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10544,
+                      "y": 8127,
+                      "width": 1431.55,
+                      "height": 1431.28
+                    },
+                    "children": [
+                      {
+                        "id": "149:1465",
+                        "name": "Radius",
+                        "type": "BOOLEAN_OPERATION",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10544,
+                          "y": 8127,
+                          "width": 1431.55,
+                          "height": 1431.28
+                        },
+                        "children": [
+                          {
+                            "id": "149:1466",
+                            "name": "Radius",
+                            "type": "GROUP",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10543.63,
+                              "y": 8126.49,
+                              "width": 1432.29,
+                              "height": 1432.29
+                            },
+                            "children": [
+                              {
+                                "id": "149:1467",
+                                "name": "Union",
+                                "type": "BOOLEAN_OPERATION",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10543.63,
+                                  "y": 8126.49,
+                                  "width": 1432.29,
+                                  "height": 1432.29
+                                },
+                                "children": [
+                                  {
+                                    "id": "149:1468",
+                                    "name": "Ellipse 42",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 10778.4,
+                                      "y": 8361.3,
+                                      "width": 962.74,
+                                      "height": 962.74
+                                    }
+                                  },
+                                  {
+                                    "id": "149:1469",
+                                    "name": "Ellipse 43",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 10543.63,
+                                      "y": 8126.49,
+                                      "width": 1432.29,
+                                      "height": 1432.29
+                                    }
+                                  },
+                                  {
+                                    "id": "149:1470",
+                                    "name": "Ellipse 46",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 10543.63,
+                                      "y": 8126.49,
+                                      "width": 1432.29,
+                                      "height": 1432.29
+                                    }
+                                  },
+                                  {
+                                    "id": "149:1471",
+                                    "name": "Ellipse 49",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 11004.76,
+                                      "y": 8587.66,
+                                      "width": 510.01,
+                                      "height": 510.01
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "id": "149:1472",
+                            "name": "Rectangle 563",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11054.33,
+                              "y": 8556.95,
+                              "width": 221.22,
+                              "height": 271.94
+                            }
+                          },
+                          {
+                            "id": "149:1473",
+                            "name": "Rectangle 565",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11338.03,
+                              "y": 8945.87,
+                              "width": 86.79,
+                              "height": 87.88
+                            }
+                          },
+                          {
+                            "id": "149:1474",
+                            "name": "Rectangle 564",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10903.14,
+                              "y": 8352.57,
+                              "width": 203.48,
+                              "height": 239.46
+                            }
+                          },
+                          {
+                            "id": "149:1475",
+                            "name": "Rectangle 562",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11434.38,
+                              "y": 9080.29,
+                              "width": 227.07,
+                              "height": 271.77
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "149:1476",
+                        "name": "Km",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10923.93,
+                          "y": 8396.73,
+                          "width": 700.37,
+                          "height": 876.61
+                        },
+                        "children": [
+                          {
+                            "id": "149:1477",
+                            "name": "5 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11329.48,
+                              "y": 8957.79,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "149:1478",
+                            "name": "15 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10923.93,
+                              "y": 8396.73,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "149:1479",
+                            "name": "10 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11426.25,
+                              "y": 9091.11,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "149:1480",
+                            "name": "10 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11020.7,
+                              "y": 8530.05,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "149:1481",
+                            "name": "15 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11511.54,
+                              "y": 9225.73,
+                              "width": 112.77,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "149:1482",
+                            "name": "5 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11105.99,
+                              "y": 8664.67,
+                              "width": 112.77,
+                              "height": 47.61
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "149:1483",
+                        "name": "Ellipse 52",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11257.25,
+                          "y": 8840.12,
+                          "width": 5.84,
+                          "height": 5.84
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "156:1260",
+                "name": "en",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 10544,
+                  "y": 8127,
+                  "width": 1431.55,
+                  "height": 1431.28
+                },
+                "children": [
+                  {
+                    "id": "157:1302",
+                    "name": "Radius",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 10544,
+                      "y": 8127,
+                      "width": 1431.55,
+                      "height": 1431.28
+                    },
+                    "children": [
+                      {
+                        "id": "156:1261",
+                        "name": "Radius",
+                        "type": "BOOLEAN_OPERATION",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10544,
+                          "y": 8127,
+                          "width": 1431.55,
+                          "height": 1431.28
+                        },
+                        "children": [
+                          {
+                            "id": "156:1262",
+                            "name": "Radius",
+                            "type": "GROUP",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10543.63,
+                              "y": 8126.49,
+                              "width": 1432.29,
+                              "height": 1432.29
+                            },
+                            "children": [
+                              {
+                                "id": "156:1263",
+                                "name": "Union",
+                                "type": "BOOLEAN_OPERATION",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 10543.63,
+                                  "y": 8126.49,
+                                  "width": 1432.29,
+                                  "height": 1432.29
+                                },
+                                "children": [
+                                  {
+                                    "id": "156:1264",
+                                    "name": "Ellipse 42",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 10778.4,
+                                      "y": 8361.3,
+                                      "width": 962.74,
+                                      "height": 962.74
+                                    }
+                                  },
+                                  {
+                                    "id": "156:1265",
+                                    "name": "Ellipse 43",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 10543.63,
+                                      "y": 8126.49,
+                                      "width": 1432.29,
+                                      "height": 1432.29
+                                    }
+                                  },
+                                  {
+                                    "id": "156:1266",
+                                    "name": "Ellipse 46",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 10543.63,
+                                      "y": 8126.49,
+                                      "width": 1432.29,
+                                      "height": 1432.29
+                                    }
+                                  },
+                                  {
+                                    "id": "156:1267",
+                                    "name": "Ellipse 49",
+                                    "type": "ELLIPSE",
+                                    "visible": true,
+                                    "bbox": {
+                                      "x": 11004.76,
+                                      "y": 8587.66,
+                                      "width": 510.01,
+                                      "height": 510.01
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "id": "156:1268",
+                            "name": "Rectangle 563",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11054.33,
+                              "y": 8556.95,
+                              "width": 221.22,
+                              "height": 271.94
+                            }
+                          },
+                          {
+                            "id": "156:1269",
+                            "name": "Rectangle 565",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11338.03,
+                              "y": 8945.87,
+                              "width": 86.79,
+                              "height": 87.88
+                            }
+                          },
+                          {
+                            "id": "156:1270",
+                            "name": "Rectangle 564",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10903.14,
+                              "y": 8352.57,
+                              "width": 203.48,
+                              "height": 239.46
+                            }
+                          },
+                          {
+                            "id": "156:1271",
+                            "name": "Rectangle 562",
+                            "type": "RECTANGLE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11434.38,
+                              "y": 9080.29,
+                              "width": 227.07,
+                              "height": 271.77
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "156:1272",
+                        "name": "Km",
+                        "type": "GROUP",
+                        "visible": true,
+                        "bbox": {
+                          "x": 10923.93,
+                          "y": 8396.73,
+                          "width": 700.37,
+                          "height": 876.61
+                        },
+                        "children": [
+                          {
+                            "id": "156:1273",
+                            "name": "5 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11329.48,
+                              "y": 8957.79,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "156:1274",
+                            "name": "15 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 10923.93,
+                              "y": 8396.73,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "156:1275",
+                            "name": "10 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11426.25,
+                              "y": 9091.11,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "156:1276",
+                            "name": "10 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11020.7,
+                              "y": 8530.05,
+                              "width": 90.22,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "156:1277",
+                            "name": "15 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11511.54,
+                              "y": 9225.73,
+                              "width": 112.77,
+                              "height": 47.61
+                            }
+                          },
+                          {
+                            "id": "156:1278",
+                            "name": "5 km",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 11105.99,
+                              "y": 8664.67,
+                              "width": 112.77,
+                              "height": 47.61
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "156:1279",
+                        "name": "Ellipse 52",
+                        "type": "ELLIPSE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 11257.25,
+                          "y": 8840.12,
+                          "width": 5.84,
+                          "height": 5.84
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "dumpedAt": "2026-05-21T13:10:15.665Z",
+    "selectionName": "Radius",
+    "selectionType": "GROUP",
+    "nodeCount": 86,
+    "maxDepth": 0,
+    "includeHidden": false,
+    "includeBBox": true
+  }
+}

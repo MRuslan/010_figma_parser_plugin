@@ -1,0 +1,91 @@
+{
+  "root": {
+    "id": "147:1307",
+    "name": "Paths",
+    "type": "GROUP",
+    "visible": true,
+    "bbox": {
+      "x": 11141,
+      "y": 8721,
+      "width": 141,
+      "height": 221
+    },
+    "children": [
+      {
+        "id": "147:1319",
+        "name": "Sobha City",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 11141,
+          "y": 8721,
+          "width": 141,
+          "height": 221
+        },
+        "children": [
+          {
+            "id": "147:1389",
+            "name": "Dubai",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 11259,
+              "y": 8721,
+              "width": 23,
+              "height": 93
+            },
+            "children": [
+              {
+                "id": "147:1388",
+                "name": "Vector 2",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 11261,
+                  "y": 8721,
+                  "width": 18,
+                  "height": 91.5
+                }
+              }
+            ]
+          },
+          {
+            "id": "147:1332",
+            "name": "Formula 1",
+            "type": "FRAME",
+            "visible": true,
+            "bbox": {
+              "x": 11141,
+              "y": 8855,
+              "width": 99,
+              "height": 87
+            },
+            "children": [
+              {
+                "id": "147:1331",
+                "name": "Vector 1",
+                "type": "VECTOR",
+                "visible": true,
+                "bbox": {
+                  "x": 11141,
+                  "y": 8857,
+                  "width": 97,
+                  "height": 84.17
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "dumpedAt": "2026-05-21T09:25:49.932Z",
+    "selectionName": "Paths",
+    "selectionType": "GROUP",
+    "nodeCount": 6,
+    "maxDepth": 0,
+    "includeHidden": false,
+    "includeBBox": true
+  }
+}

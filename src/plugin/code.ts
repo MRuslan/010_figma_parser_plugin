@@ -93,6 +93,7 @@ figma.ui.on('message', (msg: MessageToPlugin) => {
         output: result.output,
         svgConfig: result.svgConfig,
         svgExports: result.svgExports,
+        svgFolder: result.svgFolder,
         errors: result.errors,
       });
       break;

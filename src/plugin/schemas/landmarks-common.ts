@@ -129,6 +129,19 @@ export function findViewportFrames(landmarksFrame: SceneNode): {
   return { mobile, desktop };
 }
 
+// ─── SVG config builder ────────────────────────────────────
+
+/**
+ * Builds the SVG paths config string for a given folder and export list.
+ * Path format: ./svg/map/[name_map]/{folder}/{name}.svg
+ */
+export function buildSvgConfig(exports: SvgExportItem[], folder: string): string {
+  const entries = exports
+    .map(({ name }) => `\t"${name}": "./svg/map/[name_map]/${folder}/${name}.svg"`)
+    .join(',\n');
+  return `export default {\n${entries},\n};\n`;
+}
+
 // ─── Result builder ────────────────────────────────────────
 
 export function buildLandmarksResult(
@@ -157,14 +170,11 @@ export function buildLandmarksResult(
 
   let svgConfig: string | null = null;
   if (svgExports.length > 0) {
-    const entries = svgExports
-      .map(({ name }) => `\t"${name}": "./svg/map/[name_map]/landmarks/${name}"`)
-      .join(',\n');
-    svgConfig = `export default {\n${entries},\n};\n`;
+    svgConfig = buildSvgConfig(svgExports, 'landmarks');
     logs.push({ step: `SVG конфиг: ${svgExports.length} файлов`, status: 'info' });
   }
 
   logs.push({ step: 'Парсинг завершён ✓', status: 'success' });
 
-  return { output, svgConfig, svgExports, logs, errors };
+  return { output, svgConfig, svgExports, svgFolder: 'landmarks', logs, errors };
 }
