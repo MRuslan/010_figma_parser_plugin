@@ -16,7 +16,7 @@ export interface Schema {
   id: string;
   name: string;
   description: string;
-  parse: (node: SceneNode) => ParseResult;
+  parse: (node: SceneNode) => ParseResult | Promise<ParseResult>;
 }
 
 export const SCHEMAS: Schema[] = [

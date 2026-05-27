@@ -422,7 +422,7 @@ export default {
 | `isRight` | `Name.center.x > Icon.center.x` (не по имени Name L/R, а по реальной позиции) |
 | `text` | Slug от `characters` TEXT-ноды внутри Name-фрейма |
 | `language` | Только если есть language-слои |
-| `zoom` | Только если есть zoom-слои (raw level из `zoom_N`) |
+| `minZoom` / `maxZoom` | Только если есть zoom-слои. Логика как в landmarks v1: minZoom опускается для уровня 1; maxZoom = N.99 если на следующем zoom-уровне пина нет, иначе опускается. Подробнее — в `PINS_SPEC.md` |
 
 #### SVG-имена (Pins):
 - `map_pin_{group}` (desktop) / `map_pin_{group}_mob` (mobile)
@@ -430,22 +430,33 @@ export default {
 - Экспортируется по 2 файла на группу — нода Icon из первого встретившегося пина в desktop / mobile
 
 #### Сопоставление desktop ↔ mobile пинов:
-- По ключу `${text}|${lang}|${zoom}` — slug TEXT-ноды + lang + zoom
+- По ключу `${text}|${lang}|${zoom}` — slug TEXT-ноды + lang + zoom (внутренний ключ, в выходе не сохраняется)
 - Slug устойчив к различиям пробелов/переносов между desktop и mobile
+
+#### Категория группы (откуда берётся имя `map_education`/...):
+1. Если pin-фрейм лежит ВНУТРИ родительского слоя — имя родительского слоя (`"Education"`) → `map_education`
+2. Если pin-фрейм лежит прямо под viewport/lang/zoom — асинхронно через `iconNode.getMainComponentAsync().name` → парсится `Type=Education` → `map_education`
 
 #### Порядок элементов в выводе:
 - Группы: в порядке desktop → mobile (первое появление в leaf-контейнере)
 - Внутри группы — `pins[]`: для каждого `text` → для каждого `lang` → для каждого `zoom`
+- Один и тот же (text, lang), присутствующий в нескольких zoom-слоях, порождает несколько записей подряд
 
 #### Особенности:
 - `isPinsContainerName(name)`: включает "pin", исключает "mobile"/"mob"/"desktop"/"desk"
   (чтобы `Pins_Hover_Desktop` распознавался как viewport, а не как root)
-- `isPinGroupCandidate(node)`: leaf-группа = ребёнок viewport/lang/zoom-ветки, у которого
-  имя НЕ language/zoom/viewport/pin (т.е. `Education`, `Health`, …)
+- `isPinFrameCandidate(node)`: pin-фрейм определяется по СТРУКТУРЕ — есть видимый child "icon"
+  + хотя бы один другой видимый контентный child (label/hover). Имя самого pin-фрейма не важно
+  (`"Pin"`, `"Pins"`, `"Pins "` — всё работает)
 - Внутри пин-фрейма Icon — это child с именем содержащим "icon"; Name — любой другой
   FRAME/GROUP/INSTANCE child (имя может быть "Name L", "Name R", "Hover" — не важно)
+- Скрытые ноды (`visible: false`) пропускаются на всех уровнях. У скрытого Name `absoluteBoundingBox = null`,
+  что без фильтра роняло парсинг
 - Пин без Icon, без Name или с пустым текстом — пропускается с warning в лог
+- Цвета (`textColor`, `textBgColor`) берутся из первого пина группы через `node.fills` (SOLID-заливки)
 - Переиспользует `getLanguageFrames`, `getZoomFrames` из `landmarks-detect.ts`
+- `parsePins` асинхронная (из-за `getMainComponentAsync` для категории) — `Schema.parse`
+  возвращает `ParseResult | Promise<ParseResult>`
 - SVG config folder: `pins`
 
 #### Варианты структуры (авто-определяет `detectPinsStructure`):

@@ -73,30 +73,37 @@ figma.ui.on('message', (msg: MessageToPlugin) => {
       sendToUI({ type: 'PARSE_PROGRESS', step: `Схема: "${schema.name}"`, status: 'info' });
       sendToUI({ type: 'PARSE_PROGRESS', step: 'Начало парсинга...', status: 'info' });
 
-      let result;
-      try {
-        result = schema.parse(selection[0]);
-      } catch (e) {
-        const message = e instanceof Error ? e.message : String(e);
-        sendToUI({ type: 'PARSE_PROGRESS', step: `Критическая ошибка: ${message}`, status: 'error' });
-        sendToUI({ type: 'PARSE_RESULT', output: null, svgConfig: null, svgExports: null, errors: [message] });
-        return;
-      }
+      // schema.parse may be sync or async (e.g. pins fetches Icon components asynchronously)
+      (async () => {
+        try {
+          const result = await Promise.resolve(schema.parse(selection[0]));
 
-      // Relay all log entries as progress messages
-      for (const log of result.logs) {
-        sendToUI({ type: 'PARSE_PROGRESS', step: log.step, status: log.status });
-      }
+          // Relay all log entries as progress messages
+          for (const log of result.logs) {
+            sendToUI({ type: 'PARSE_PROGRESS', step: log.step, status: log.status });
+          }
 
-      sendToUI({
-        type: 'PARSE_RESULT',
-        output: result.output,
-        svgConfig: result.svgConfig,
-        svgExports: result.svgExports,
-        svgFolder: result.svgFolder,
-        i18nConfig: result.i18nConfig ?? null,
-        errors: result.errors,
-      });
+          sendToUI({
+            type: 'PARSE_RESULT',
+            output: result.output,
+            svgConfig: result.svgConfig,
+            svgExports: result.svgExports,
+            svgFolder: result.svgFolder,
+            i18nConfig: result.i18nConfig ?? null,
+            errors: result.errors,
+          });
+        } catch (e) {
+          const message = e instanceof Error ? e.message : String(e);
+          sendToUI({ type: 'PARSE_PROGRESS', step: `Критическая ошибка: ${message}`, status: 'error' });
+          sendToUI({
+            type: 'PARSE_RESULT',
+            output: null,
+            svgConfig: null,
+            svgExports: null,
+            errors: [message],
+          });
+        }
+      })();
       break;
     }
 
@@ -151,13 +158,15 @@ figma.ui.on('message', (msg: MessageToPlugin) => {
         return;
       }
 
-      try {
-        const result = dumpStructure(selection[0], msg.options);
-        sendToUI({ type: 'STRUCTURE_DUMP_RESULT', result, error: null });
-      } catch (e) {
-        const message = e instanceof Error ? e.message : String(e);
-        sendToUI({ type: 'STRUCTURE_DUMP_RESULT', result: null, error: message });
-      }
+      (async () => {
+        try {
+          const result = await dumpStructure(selection[0], msg.options);
+          sendToUI({ type: 'STRUCTURE_DUMP_RESULT', result, error: null });
+        } catch (e) {
+          const message = e instanceof Error ? e.message : String(e);
+          sendToUI({ type: 'STRUCTURE_DUMP_RESULT', result: null, error: message });
+        }
+      })();
       break;
     }
 

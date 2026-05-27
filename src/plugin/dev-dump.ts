@@ -37,11 +37,11 @@ function getBBox(node: SceneNode): StructureDumpBBox | null {
   };
 }
 
-function dumpNode(
+async function dumpNode(
   node: SceneNode,
   options: DumpStructureOptions,
   depth: number
-): StructureDumpNode {
+): Promise<StructureDumpNode> {
   const entry: StructureDumpNode = {
     id: node.id,
     name: node.name,
@@ -57,9 +57,14 @@ function dumpNode(
   }
 
   if (node.type === 'INSTANCE') {
-    const main = (node as InstanceNode).mainComponent;
-    if (main) {
-      entry.component = main.name;
+    try {
+      // Async required with documentAccess: dynamic-page
+      const main = await (node as InstanceNode).getMainComponentAsync();
+      if (main) {
+        entry.component = main.name;
+      }
+    } catch {
+      // Silently skip — component info is optional metadata for the dump
     }
   }
 
@@ -83,7 +88,7 @@ function dumpNode(
       if (!options.includeHidden && 'visible' in child && !child.visible) {
         continue;
       }
-      children.push(dumpNode(child as SceneNode, options, depth + 1));
+      children.push(await dumpNode(child as SceneNode, options, depth + 1));
     }
 
     if (children.length > 0) {
@@ -104,12 +109,12 @@ function countNodes(node: StructureDumpNode): number {
   return n;
 }
 
-export function dumpStructure(
+export async function dumpStructure(
   root: SceneNode,
   partialOptions?: Partial<DumpStructureOptions>
-): StructureDumpResult {
+): Promise<StructureDumpResult> {
   const options = normalizeDumpOptions(partialOptions);
-  const tree = dumpNode(root, options, 0);
+  const tree = await dumpNode(root, options, 0);
   const nodeCount = countNodes(tree);
 
   return {

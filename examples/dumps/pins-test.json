@@ -1,0 +1,925 @@
+{
+  "root": {
+    "id": "184:2128",
+    "name": "Pins",
+    "type": "GROUP",
+    "visible": true,
+    "bbox": {
+      "x": 19940,
+      "y": 8907,
+      "width": 334,
+      "height": 261
+    },
+    "children": [
+      {
+        "id": "184:2019",
+        "name": "Pins Desktop",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 19940,
+          "y": 8922,
+          "width": 20,
+          "height": 134
+        },
+        "children": [
+          {
+            "id": "184:2122",
+            "name": "En",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 19940,
+              "y": 8922,
+              "width": 20,
+              "height": 58
+            },
+            "children": [
+              {
+                "id": "184:2124",
+                "name": "Zoom_1",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 19940,
+                  "y": 8922,
+                  "width": 20,
+                  "height": 20
+                },
+                "children": [
+                  {
+                    "id": "184:1970",
+                    "name": "Pin",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 19940,
+                      "y": 8922,
+                      "width": 20,
+                      "height": 20
+                    },
+                    "component": "Viewport=Desktop, Pos=Right",
+                    "children": [
+                      {
+                        "id": "I184:1970;184:1943",
+                        "name": "Icon",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19940,
+                          "y": 8922,
+                          "width": 20,
+                          "height": 20
+                        },
+                        "component": "Type=Education",
+                        "children": [
+                          {
+                            "id": "I184:1970;184:1943;184:1787",
+                            "name": "Circle",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19940,
+                              "y": 8922,
+                              "width": 20,
+                              "height": 20
+                            }
+                          },
+                          {
+                            "id": "I184:1970;184:1943;184:1788",
+                            "name": "Education",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19943.42,
+                              "y": 8926.62,
+                              "width": 13.6,
+                              "height": 10.8
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "I184:1970;184:1946",
+                        "name": "Hover",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19965,
+                          "y": 8922,
+                          "width": 124,
+                          "height": 20
+                        },
+                        "component": "Hover=Education",
+                        "children": [
+                          {
+                            "id": "I184:1970;184:1946;184:1853",
+                            "name": "Education",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19975,
+                              "y": 8924,
+                              "width": 104,
+                              "height": 16
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "184:2125",
+                "name": "Zoom_2",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 19940,
+                  "y": 8960,
+                  "width": 20,
+                  "height": 20
+                },
+                "children": [
+                  {
+                    "id": "184:1977",
+                    "name": "Pin",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 19940,
+                      "y": 8960,
+                      "width": 20,
+                      "height": 20
+                    },
+                    "component": "Viewport=Desktop, Pos=Left",
+                    "children": [
+                      {
+                        "id": "I184:1977;184:1954",
+                        "name": "Hover",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19809,
+                          "y": 8960,
+                          "width": 126,
+                          "height": 20
+                        },
+                        "component": "Hover=Education",
+                        "children": [
+                          {
+                            "id": "I184:1977;184:1954;184:1853",
+                            "name": "Education",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19819,
+                              "y": 8962,
+                              "width": 106,
+                              "height": 16
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "I184:1977;184:1953",
+                        "name": "Icon",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19940,
+                          "y": 8960,
+                          "width": 20,
+                          "height": 20
+                        },
+                        "component": "Type=Education",
+                        "children": [
+                          {
+                            "id": "I184:1977;184:1953;184:1787",
+                            "name": "Circle",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19940,
+                              "y": 8960,
+                              "width": 20,
+                              "height": 20
+                            }
+                          },
+                          {
+                            "id": "I184:1977;184:1953;184:1788",
+                            "name": "Education",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19943.42,
+                              "y": 8964.62,
+                              "width": 13.6,
+                              "height": 10.8
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "184:2123",
+            "name": "Ar",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 19940,
+              "y": 8998,
+              "width": 20,
+              "height": 58
+            },
+            "children": [
+              {
+                "id": "184:2126",
+                "name": "Zoom_1",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 19940,
+                  "y": 8998,
+                  "width": 20,
+                  "height": 20
+                },
+                "children": [
+                  {
+                    "id": "184:2039",
+                    "name": "Pin",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 19940,
+                      "y": 8998,
+                      "width": 20,
+                      "height": 20
+                    },
+                    "component": "Viewport=Desktop, Pos=Left",
+                    "children": [
+                      {
+                        "id": "I184:2039;184:1954",
+                        "name": "Hover",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19815,
+                          "y": 8998,
+                          "width": 120,
+                          "height": 20
+                        },
+                        "component": "Hover=Education",
+                        "children": [
+                          {
+                            "id": "I184:2039;184:1954;184:1853",
+                            "name": "Education",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19825,
+                              "y": 9000,
+                              "width": 100,
+                              "height": 16
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "I184:2039;184:1953",
+                        "name": "Icon",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19940,
+                          "y": 8998,
+                          "width": 20,
+                          "height": 20
+                        },
+                        "component": "Type=Education",
+                        "children": [
+                          {
+                            "id": "I184:2039;184:1953;184:1787",
+                            "name": "Circle",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19940,
+                              "y": 8998,
+                              "width": 20,
+                              "height": 20
+                            }
+                          },
+                          {
+                            "id": "I184:2039;184:1953;184:1788",
+                            "name": "Education",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19943.42,
+                              "y": 9002.62,
+                              "width": 13.6,
+                              "height": 10.8
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "184:2127",
+                "name": "Zoom_2",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 19940,
+                  "y": 9036,
+                  "width": 20,
+                  "height": 20
+                },
+                "children": [
+                  {
+                    "id": "184:2046",
+                    "name": "Pin",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 19940,
+                      "y": 9036,
+                      "width": 20,
+                      "height": 20
+                    },
+                    "component": "Viewport=Desktop, Pos=Right",
+                    "children": [
+                      {
+                        "id": "I184:2046;184:1943",
+                        "name": "Icon",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19940,
+                          "y": 9036,
+                          "width": 20,
+                          "height": 20
+                        },
+                        "component": "Type=Education",
+                        "children": [
+                          {
+                            "id": "I184:2046;184:1943;184:1787",
+                            "name": "Circle",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19940,
+                              "y": 9036,
+                              "width": 20,
+                              "height": 20
+                            }
+                          },
+                          {
+                            "id": "I184:2046;184:1943;184:1788",
+                            "name": "Education",
+                            "type": "VECTOR",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19943.42,
+                              "y": 9040.62,
+                              "width": 13.6,
+                              "height": 10.8
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "id": "I184:2046;184:1946",
+                        "name": "Hover",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 19965,
+                          "y": 9036,
+                          "width": 123,
+                          "height": 20
+                        },
+                        "component": "Hover=Education",
+                        "children": [
+                          {
+                            "id": "I184:2046;184:1946;184:1853",
+                            "name": "Education",
+                            "type": "TEXT",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19975,
+                              "y": 9038,
+                              "width": 103,
+                              "height": 16
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "184:2059",
+        "name": "Pins Mobile",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 20224,
+          "y": 8907,
+          "width": 50,
+          "height": 261
+        },
+        "children": [
+          {
+            "id": "184:2112",
+            "name": "En",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20224,
+              "y": 8907,
+              "width": 50,
+              "height": 116
+            },
+            "children": [
+              {
+                "id": "184:2117",
+                "name": "Zoom_1",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 20224,
+                  "y": 8907,
+                  "width": 50,
+                  "height": 50
+                },
+                "children": [
+                  {
+                    "id": "184:2121",
+                    "name": "Education",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20224,
+                      "y": 8907,
+                      "width": 50,
+                      "height": 50
+                    },
+                    "children": [
+                      {
+                        "id": "184:2060",
+                        "name": "Pin",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20224,
+                          "y": 8907,
+                          "width": 50,
+                          "height": 50
+                        },
+                        "component": "Viewport=Mobile, Pos=Right",
+                        "children": [
+                          {
+                            "id": "I184:2060;184:1960",
+                            "name": "Icon",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 20224,
+                              "y": 8907,
+                              "width": 50,
+                              "height": 50
+                            },
+                            "component": "Type=Education",
+                            "children": [
+                              {
+                                "id": "I184:2060;184:1960;184:1787",
+                                "name": "Circle",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20224,
+                                  "y": 8907,
+                                  "width": 50,
+                                  "height": 50
+                                }
+                              },
+                              {
+                                "id": "I184:2060;184:1960;184:1788",
+                                "name": "Education",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20232.55,
+                                  "y": 8918.54,
+                                  "width": 34,
+                                  "height": 27
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "id": "I184:2060;184:1959",
+                            "name": "Hover",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 20279,
+                              "y": 8907,
+                              "width": 263,
+                              "height": 50
+                            },
+                            "component": "Hover=Education",
+                            "children": [
+                              {
+                                "id": "I184:2060;184:1959;184:1853",
+                                "name": "Education",
+                                "type": "TEXT",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20303,
+                                  "y": 8915,
+                                  "width": 215,
+                                  "height": 34
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "184:2116",
+                "name": "Zoom_2",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 20224,
+                  "y": 8973,
+                  "width": 50,
+                  "height": 50
+                },
+                "children": [
+                  {
+                    "id": "184:2120",
+                    "name": "Education",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20224,
+                      "y": 8973,
+                      "width": 50,
+                      "height": 50
+                    },
+                    "children": [
+                      {
+                        "id": "184:2061",
+                        "name": "Pin",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20224,
+                          "y": 8973,
+                          "width": 50,
+                          "height": 50
+                        },
+                        "component": "Viewport=Mobile, Pos=Left",
+                        "children": [
+                          {
+                            "id": "I184:2061;184:1966",
+                            "name": "Hover",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19950,
+                              "y": 8973,
+                              "width": 269,
+                              "height": 50
+                            },
+                            "component": "Hover=Education",
+                            "children": [
+                              {
+                                "id": "I184:2061;184:1966;184:1853",
+                                "name": "Education",
+                                "type": "TEXT",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 19974,
+                                  "y": 8981,
+                                  "width": 221,
+                                  "height": 34
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "id": "I184:2061;184:1965",
+                            "name": "Icon",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 20224,
+                              "y": 8973,
+                              "width": 50,
+                              "height": 50
+                            },
+                            "component": "Type=Education",
+                            "children": [
+                              {
+                                "id": "I184:2061;184:1965;184:1787",
+                                "name": "Circle",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20224,
+                                  "y": 8973,
+                                  "width": 50,
+                                  "height": 50
+                                }
+                              },
+                              {
+                                "id": "I184:2061;184:1965;184:1788",
+                                "name": "Education",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20232.55,
+                                  "y": 8984.54,
+                                  "width": 34,
+                                  "height": 27
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "184:2113",
+            "name": "Ar",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20224,
+              "y": 9046,
+              "width": 50,
+              "height": 122
+            },
+            "children": [
+              {
+                "id": "184:2114",
+                "name": "Zoom_1",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 20224,
+                  "y": 9046,
+                  "width": 50,
+                  "height": 50
+                },
+                "children": [
+                  {
+                    "id": "184:2119",
+                    "name": "Education",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20224,
+                      "y": 9046,
+                      "width": 50,
+                      "height": 50
+                    },
+                    "children": [
+                      {
+                        "id": "184:2062",
+                        "name": "Pin",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20224,
+                          "y": 9046,
+                          "width": 50,
+                          "height": 50
+                        },
+                        "component": "Viewport=Mobile, Pos=Left",
+                        "children": [
+                          {
+                            "id": "I184:2062;184:1966",
+                            "name": "Hover",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 19965,
+                              "y": 9046,
+                              "width": 254,
+                              "height": 50
+                            },
+                            "component": "Hover=Education",
+                            "children": [
+                              {
+                                "id": "I184:2062;184:1966;184:1853",
+                                "name": "Education",
+                                "type": "TEXT",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 19989,
+                                  "y": 9054,
+                                  "width": 206,
+                                  "height": 34
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "id": "I184:2062;184:1965",
+                            "name": "Icon",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 20224,
+                              "y": 9046,
+                              "width": 50,
+                              "height": 50
+                            },
+                            "component": "Type=Education",
+                            "children": [
+                              {
+                                "id": "I184:2062;184:1965;184:1787",
+                                "name": "Circle",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20224,
+                                  "y": 9046,
+                                  "width": 50,
+                                  "height": 50
+                                }
+                              },
+                              {
+                                "id": "I184:2062;184:1965;184:1788",
+                                "name": "Education",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20232.55,
+                                  "y": 9057.54,
+                                  "width": 34,
+                                  "height": 27
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "184:2115",
+                "name": "Zoom_2",
+                "type": "GROUP",
+                "visible": true,
+                "bbox": {
+                  "x": 20224,
+                  "y": 9118,
+                  "width": 50,
+                  "height": 50
+                },
+                "children": [
+                  {
+                    "id": "184:2118",
+                    "name": "Education",
+                    "type": "GROUP",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20224,
+                      "y": 9118,
+                      "width": 50,
+                      "height": 50
+                    },
+                    "children": [
+                      {
+                        "id": "184:2063",
+                        "name": "Pin",
+                        "type": "INSTANCE",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20224,
+                          "y": 9118,
+                          "width": 50,
+                          "height": 50
+                        },
+                        "component": "Viewport=Mobile, Pos=Right",
+                        "children": [
+                          {
+                            "id": "I184:2063;184:1960",
+                            "name": "Icon",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 20224,
+                              "y": 9118,
+                              "width": 50,
+                              "height": 50
+                            },
+                            "component": "Type=Education",
+                            "children": [
+                              {
+                                "id": "I184:2063;184:1960;184:1787",
+                                "name": "Circle",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20224,
+                                  "y": 9118,
+                                  "width": 50,
+                                  "height": 50
+                                }
+                              },
+                              {
+                                "id": "I184:2063;184:1960;184:1788",
+                                "name": "Education",
+                                "type": "VECTOR",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20232.55,
+                                  "y": 9129.54,
+                                  "width": 34,
+                                  "height": 27
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "id": "I184:2063;184:1959",
+                            "name": "Hover",
+                            "type": "INSTANCE",
+                            "visible": true,
+                            "bbox": {
+                              "x": 20279,
+                              "y": 9118,
+                              "width": 261,
+                              "height": 50
+                            },
+                            "component": "Hover=Education",
+                            "children": [
+                              {
+                                "id": "I184:2063;184:1959;184:1853",
+                                "name": "Education",
+                                "type": "TEXT",
+                                "visible": true,
+                                "bbox": {
+                                  "x": 20303,
+                                  "y": 9126,
+                                  "width": 213,
+                                  "height": 34
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "dumpedAt": "2026-05-26T13:00:27.027Z",
+    "selectionName": "Pins",
+    "selectionType": "GROUP",
+    "nodeCount": 67,
+    "maxDepth": 0,
+    "includeHidden": false,
+    "includeBBox": true
+  }
+}

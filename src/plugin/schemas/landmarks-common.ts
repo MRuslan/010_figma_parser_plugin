@@ -134,12 +134,15 @@ export function findViewportFrames(landmarksFrame: SceneNode): {
 /**
  * Builds the SVG paths config string for a given folder and export list.
  * Path format: ./svg/map/[name_map]/{folder}/{name}.svg
+ *
+ * Output is a bare object literal (no `export default ... ;` wrapper)
+ * — intended for pasting directly into project config files.
  */
 export function buildSvgConfig(exports: SvgExportItem[], folder: string): string {
   const entries = exports
     .map(({ name }) => `\t"${name}": "./svg/map/[name_map]/${folder}/${name}.svg"`)
     .join(',\n');
-  return `export default {\n${entries},\n};\n`;
+  return `{\n${entries},\n}\n`;
 }
 
 // ─── Result builder ────────────────────────────────────────

@@ -1,6 +1,6 @@
 /// <reference types="@figma/plugin-typings" />
 
-import { nameIncludes, round2, slugify, getZoomLevel, isLanguageCode, wrapExport, toJSObject } from '../utils';
+import { nameIncludes, round2, slugify, getZoomLevel, wrapExport, toJSObject } from '../utils';
 import type { LogEntry, ParseResult, SvgExportItem } from '../types';
 import { buildSvgConfig, getBBox, getChildNodes, getMapOrigin } from './landmarks-common';
 import { getLanguageFrames, getZoomFrames } from './landmarks-detect';
@@ -20,7 +20,10 @@ interface PinBreakpoint {
 
 interface PinItem {
   language?: string[];
-  zoom?: number;
+  /** Lower bound of zoom range (inclusive). Omitted for level 1 → visible from start. */
+  minZoom?: number;
+  /** Upper bound of zoom range as `N.99`. Omitted for last level → visible till end. */
+  maxZoom?: number;
   left: number;
   top: number;
   isRight: boolean;
@@ -167,23 +170,58 @@ function getPinInternals(pinFrame: SceneNode): PinInternals | null {
   return { icon, name, textNode, textRaw };
 }
 
-// ─── Group discovery (Education / Health / ...) ────────────
+// ─── Pin frame & group discovery ───────────────────────────
 
-/** Returns true if a frame is a "leaf" group containing pin frames (Education, Health, ...). */
-function isPinGroupCandidate(node: SceneNode): boolean {
-  const name = node.name;
-  if (isLanguageCode(name)) return false;
-  if (getZoomLevel(name) !== null) return false;
-  if (nameIncludes(name, 'mobile') || nameIncludes(name, 'mob')) return false;
-  if (nameIncludes(name, 'desktop') || nameIncludes(name, 'desk')) return false;
-  if (nameIncludes(name, 'pin')) return false; // pin-frames themselves
-  return 'children' in node;
+/**
+ * Identifies a pin frame by STRUCTURE (not by name):
+ * has a visible "icon" child + at least one other visible content child (label/hover).
+ * Works for "Pins ", "Pin", or any other name a designer might use.
+ */
+function isPinFrameCandidate(node: SceneNode): boolean {
+  if (!('children' in node)) return false;
+  let hasIcon = false;
+  let hasOther = false;
+  for (const child of getChildNodes(node)) {
+    if (!isVisible(child)) continue;
+    if (
+      child.type !== 'FRAME' &&
+      child.type !== 'GROUP' &&
+      child.type !== 'INSTANCE' &&
+      child.type !== 'COMPONENT'
+    ) continue;
+    if (nameIncludes(child.name, 'icon')) hasIcon = true;
+    else hasOther = true;
+    if (hasIcon && hasOther) return true;
+  }
+  return false;
 }
 
-/** Returns all visible pin "Pins" frames directly under a group (children that contain Icon + Name). */
-function getPinFramesInGroup(groupNode: SceneNode): SceneNode[] {
-  if (!('children' in groupNode)) return [];
-  return getChildNodes(groupNode).filter((c) => isVisible(c) && 'children' in c);
+/**
+ * Extracts the category name from an Icon INSTANCE's main component.
+ * Examples:
+ *   "Type=Education"                  → "Education"
+ *   "Type=Education, Style=Filled"    → "Education"
+ *   "Education"                        → "Education" (fallback when no Type= prefix)
+ * Returns null if mainComponent missing or name empty.
+ * Async because plugin runs with documentAccess: dynamic-page.
+ */
+async function getCategoryFromIcon(iconNode: SceneNode): Promise<string | null> {
+  if (iconNode.type !== 'INSTANCE' && iconNode.type !== 'COMPONENT') return null;
+  try {
+    const main =
+      iconNode.type === 'INSTANCE'
+        ? await (iconNode as InstanceNode).getMainComponentAsync()
+        : (iconNode as ComponentNode);
+    if (!main) return null;
+    const name = main.name.trim();
+    if (!name) return null;
+    // Try variant-property format first: "Type=Education[, Other=Foo]"
+    const match = name.match(/(?:^|,\s*)Type\s*=\s*([^,]+)/i);
+    if (match) return match[1].trim();
+    return name;
+  } catch {
+    return null;
+  }
 }
 
 // ─── Leaf extraction ───────────────────────────────────────
@@ -202,18 +240,22 @@ interface PinLeaf {
   textBgColor: string | null;   // Name FRAME fill (#rrggbb[aa])
 }
 
-function buildPinLeaf(
+/**
+ * Builds a PinLeaf from a pin frame.
+ * @param groupOverride if provided (parent layer is a named group), use as group name;
+ *                      otherwise extract from Icon component's `Type=` property
+ */
+async function buildPinLeaf(
   pinFrame: SceneNode,
-  groupCode: string,
-  groupNameRaw: string,
+  groupOverride: string | null,
   lang: string,
   zoom: number,
   logs: LogEntry[]
-): PinLeaf | null {
+): Promise<PinLeaf | null> {
   const internals = getPinInternals(pinFrame);
   if (!internals) {
     logs.push({
-      step: `  ⚠ "${groupNameRaw}": пропущен пин без Icon/Name или с пустым текстом`,
+      step: `  ⚠ Пин "${pinFrame.name.trim()}": нет Icon/Name или пустой текст`,
       status: 'warning',
     });
     return null;
@@ -223,11 +265,28 @@ function buildPinLeaf(
   const nameBBox = getBBox(internals.name);
   if (!iconBBox || !nameBBox) {
     logs.push({
-      step: `  ⚠ "${groupNameRaw}": нет bbox у Icon/Name`,
+      step: `  ⚠ Пин "${pinFrame.name.trim()}": нет bbox у Icon/Name`,
       status: 'warning',
     });
     return null;
   }
+
+  // Determine group: parent layer name (preferred) → Icon component "Type=X" fallback
+  let groupNameRaw: string;
+  if (groupOverride) {
+    groupNameRaw = groupOverride;
+  } else {
+    const cat = await getCategoryFromIcon(internals.icon);
+    if (!cat) {
+      logs.push({
+        step: `  ⚠ Пин "${pinFrame.name.trim()}": не удалось определить категорию (нет слоя-группы и Type= в Icon component)`,
+        status: 'warning',
+      });
+      return null;
+    }
+    groupNameRaw = cat;
+  }
+  const groupCode = `map_${slugify(groupNameRaw)}`;
 
   const iconCenterX = iconBBox.x + iconBBox.width / 2;
   const nameCenterX = nameBBox.x + nameBBox.width / 2;
@@ -248,66 +307,75 @@ function buildPinLeaf(
   };
 }
 
-function getPinLeavesFromGroup(
-  groupNode: SceneNode,
-  lang: string,
-  zoom: number,
-  logs: LogEntry[]
-): PinLeaf[] {
-  const groupNameRaw = groupNode.name.trim();
-  const groupCode = `map_${slugify(groupNameRaw)}`;
-
-  const leaves: PinLeaf[] = [];
-  for (const pinFrame of getPinFramesInGroup(groupNode)) {
-    const leaf = buildPinLeaf(pinFrame, groupCode, groupNameRaw, lang, zoom, logs);
-    if (leaf) leaves.push(leaf);
-  }
-  return leaves;
-}
-
-function getPinLeavesFromContainer(
+/**
+ * Collects pin leaves from a container (viewport / lang-group / zoom-group).
+ * Handles both structures:
+ *   container → Pin (direct, no group layer)        → group from Icon's `Type=`
+ *   container → GroupLayer → Pin (with group layer) → group from layer name
+ */
+async function collectPinsFromContainer(
   container: SceneNode,
   lang: string,
   zoom: number,
   logs: LogEntry[]
-): PinLeaf[] {
+): Promise<PinLeaf[]> {
   const leaves: PinLeaf[] = [];
-  for (const groupNode of getChildNodes(container)) {
-    if (!isVisible(groupNode)) continue;
-    if (!isPinGroupCandidate(groupNode)) continue;
-    leaves.push(...getPinLeavesFromGroup(groupNode, lang, zoom, logs));
+  for (const child of getChildNodes(container)) {
+    if (!isVisible(child)) continue;
+
+    if (isPinFrameCandidate(child)) {
+      // Direct pin under container — derive category from Icon component
+      const leaf = await buildPinLeaf(child, null, lang, zoom, logs);
+      if (leaf) leaves.push(leaf);
+      continue;
+    }
+
+    // Treat child as a group layer (e.g., "Education")
+    if (!('children' in child)) continue;
+    const groupName = child.name.trim();
+    for (const grand of getChildNodes(child)) {
+      if (!isVisible(grand)) continue;
+      if (isPinFrameCandidate(grand)) {
+        const leaf = await buildPinLeaf(grand, groupName, lang, zoom, logs);
+        if (leaf) leaves.push(leaf);
+      }
+    }
   }
   return leaves;
 }
 
-function getPinLeaves(
+async function getPinLeaves(
   viewport: SceneNode,
   flags: PinsStructureFlags,
   defaultLang: string,
   logs: LogEntry[]
-): PinLeaf[] {
+): Promise<PinLeaf[]> {
   const leaves: PinLeaf[] = [];
 
   if (flags.languages && flags.zooms) {
     for (const langFrame of getLanguageFrames(viewport)) {
+      if (!isVisible(langFrame)) continue;
       const lang = langFrame.name.trim().toLowerCase();
       for (const zoomFrame of getZoomFrames(langFrame)) {
+        if (!isVisible(zoomFrame)) continue;
         const zoom = getZoomLevel(zoomFrame.name)!;
-        leaves.push(...getPinLeavesFromContainer(zoomFrame, lang, zoom, logs));
+        leaves.push(...(await collectPinsFromContainer(zoomFrame, lang, zoom, logs)));
       }
     }
   } else if (flags.languages) {
     for (const langFrame of getLanguageFrames(viewport)) {
+      if (!isVisible(langFrame)) continue;
       const lang = langFrame.name.trim().toLowerCase();
-      leaves.push(...getPinLeavesFromContainer(langFrame, lang, 0, logs));
+      leaves.push(...(await collectPinsFromContainer(langFrame, lang, 0, logs)));
     }
   } else if (flags.zooms) {
     for (const zoomFrame of getZoomFrames(viewport)) {
+      if (!isVisible(zoomFrame)) continue;
       const zoom = getZoomLevel(zoomFrame.name)!;
-      leaves.push(...getPinLeavesFromContainer(zoomFrame, defaultLang, zoom, logs));
+      leaves.push(...(await collectPinsFromContainer(zoomFrame, defaultLang, zoom, logs)));
     }
   } else {
-    leaves.push(...getPinLeavesFromContainer(viewport, defaultLang, 0, logs));
+    leaves.push(...(await collectPinsFromContainer(viewport, defaultLang, 0, logs)));
   }
 
   return leaves;
@@ -411,10 +479,15 @@ function buildGroup(
   }
 
   // Build pins[]: ordered by text → lang → zoom
+  // Zoom levels sorted ascending — needed for minZoom/maxZoom (landmarks v1 logic)
+  const sortedZooms = [...collector.zoomsInOrder].sort((a, b) => a - b);
+
   const pins: PinItem[] = [];
   for (const text of collector.textsInOrder) {
     for (const lang of collector.langsInOrder) {
-      for (const zoom of collector.zoomsInOrder) {
+      for (let zi = 0; zi < sortedZooms.length; zi++) {
+        const zoom = sortedZooms[zi];
+        const nextZoom = sortedZooms[zi + 1];
         const key = `${text}|${lang}|${zoom}`;
         const dLeaf = collector.dMap.get(key);
         const mLeaf = collector.mMap.get(key);
@@ -428,9 +501,32 @@ function buildGroup(
         const mCenterX = mobileLeaf.iconBBox.x + mobileLeaf.iconBBox.width / 2;
         const mCenterY = mobileLeaf.iconBBox.y + mobileLeaf.iconBBox.height / 2;
 
+        // ── minZoom / maxZoom (landmarks v1 logic) ──
+        // Only emitted when zoom layers exist in Figma.
+        // - minZoom: only for levels > 1 (level 1 = visible from the start)
+        // - maxZoom: only when next zoom level exists AND this (text, lang) is NOT in it
+        //            → "N.99" (visible up to just before next level)
+        //            last level OR exists in next → no maxZoom (continues)
+        let minZoom: number | undefined;
+        let maxZoom: number | undefined;
+        if (flags.zooms) {
+          if (zoom > 1) {
+            minZoom = zoom;
+          }
+          if (nextZoom !== undefined) {
+            const nextKey = `${text}|${lang}|${nextZoom}`;
+            const existsInNext =
+              collector.dMap.has(nextKey) || collector.mMap.has(nextKey);
+            if (!existsInNext) {
+              maxZoom = parseFloat(`${zoom}.99`);
+            }
+          }
+        }
+
         const item: PinItem = {
           language: flags.languages ? [lang] : undefined,
-          zoom: flags.zooms ? zoom : undefined,
+          minZoom,
+          maxZoom,
           left: round2(dCenterX - originX),
           top: round2(dCenterY - originY),
           isRight: primaryLeaf.isRight,
@@ -446,9 +542,13 @@ function buildGroup(
 
         const langNote = flags.languages ? ` [${lang}]` : '';
         const zoomNote = flags.zooms ? ` zoom:${zoom}` : '';
+        const rangeNote =
+          flags.zooms && (minZoom !== undefined || maxZoom !== undefined)
+            ? ` (${minZoom ?? '-'}..${maxZoom ?? '-'})`
+            : '';
         const rawName = collector.textRaws.get(text) ?? text;
         logs.push({
-          step: `  ✓ ${groupNameRaw} → "${rawName.replace(/\s+/g, ' ').trim()}"${langNote}${zoomNote}`,
+          step: `  ✓ ${groupNameRaw} → "${rawName.replace(/\s+/g, ' ').trim()}"${langNote}${zoomNote}${rangeNote}`,
           status: 'success',
         });
         pins.push(item);
@@ -538,7 +638,8 @@ function buildI18nConfigString(collector: I18nCollector): string | null {
     obj[slug] = inner;
   }
 
-  return `export default ${toJSObject(obj, 1)};\n`;
+  // Bare object literal (no `export default ... ;` wrapper) — for direct pasting into project config
+  return `${toJSObject(obj, 1)}\n`;
 }
 
 // ─── Result builder ────────────────────────────────────────
@@ -591,7 +692,7 @@ function buildPinsResult(
 
 // ─── Entry point ───────────────────────────────────────────
 
-export function parsePins(selectedNode: SceneNode): ParseResult {
+export async function parsePins(selectedNode: SceneNode): Promise<ParseResult> {
   const logs: LogEntry[] = [];
   const errors: string[] = [];
 
@@ -619,8 +720,8 @@ export function parsePins(selectedNode: SceneNode): ParseResult {
   const flags = profile.flags;
 
   // Collect all leaves from both viewports
-  const dLeaves = desktop ? getPinLeaves(desktop, flags, 'en', logs) : [];
-  const mLeaves = mobile ? getPinLeaves(mobile, flags, 'en', logs) : [];
+  const dLeaves = desktop ? await getPinLeaves(desktop, flags, 'en', logs) : [];
+  const mLeaves = mobile ? await getPinLeaves(mobile, flags, 'en', logs) : [];
 
   logs.push({ step: `Desktop: ${dLeaves.length} пинов`, status: 'info' });
   logs.push({ step: `Mobile: ${mLeaves.length} пинов`, status: 'info' });

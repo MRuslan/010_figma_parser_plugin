@@ -146,7 +146,15 @@ export function toJSObject(value: unknown, indent = 1): string {
   return String(value);
 }
 
-/** Wraps the output as `export default { key: value };` */
+/**
+ * Returns a bare JS object/array literal (no `export default ... ;` wrapper, no wrapping key)
+ * — intended for pasting directly into project config files where the surrounding context
+ * already provides the assignment / property key.
+ *
+ * The `key` parameter is preserved for API stability and may be used in logs/messages,
+ * but it's not included in the output.
+ */
 export function wrapExport(key: string, value: unknown): string {
-  return `export default {\n\t${key}: ${toJSObject(value, 2)},\n};\n`;
+  void key; // intentionally unused — kept for backwards-compatible call signature
+  return `${toJSObject(value, 1)}\n`;
 }
