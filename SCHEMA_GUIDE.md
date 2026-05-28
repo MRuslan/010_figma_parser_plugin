@@ -350,62 +350,89 @@
 каждая группа имеет свою SVG-иконку и размер кружочка; внутри группы — массив пинов
 с уникальной позицией, подписью и направлением подписи (`isRight`).
 
-#### Структура Figma (4 авто-определяемых варианта):
+#### Две поддерживаемых структуры Figma (авто-определение)
+
+Парсер сам определяет структуру: если хотя бы у одного прямого ребёнка root в имени
+есть `|` → **v2 (плоская)**, иначе → **вложенная**.
+
+**Структура A — вложенная (4 авто-определяемых варианта):**
 ```
 [Pins / Pins_Hover / …]            ← root (nameIncludes 'pin', НЕ viewport)
 ├── Pins_Desktop                    ← viewport (nameIncludes 'desktop')
 │   └── [lang] ?                    ← GROUP с ISO-кодом (en, ar, …)
 │       └── [Zoom N] ?              ← GROUP/FRAME "zoom_1", "Zoom 2", …
 │           ├── Education           ← группа пинов (любое имя; slug → 'map_education')
-│           │   ├── Pins            ← пин-фрейм
-│           │   │   ├── Icon        ← FRAME содержит "icon" (кружочек + svg)
-│           │   │   └── Name L/R/Hover/…  ← FRAME с TEXT-нодой внутри
-│           │   └── Pins
+│           │   ├── Pin             ← пин-фрейм (имя любое: Pin / Pins / …)
+│           │   │   ├── Icon        ← INSTANCE/FRAME содержит "icon" (кружочек + svg)
+│           │   │   └── Name L/R/Hover/…  ← FRAME/INSTANCE с TEXT-нодой внутри
+│           │   └── Pin
 │           ├── Health
-│           ├── Mosque
 │           └── Retail
 └── Pins_Mobile                     ← viewport (nameIncludes 'mobile')
     └── ...та же иерархия
 ```
+Примечание: групповой слой (Education/…) опционален — пин может лежать прямо под
+zoom/lang/viewport. Тогда категория берётся из компонента Icon (`Type=Education`).
 
-#### Структура выхода:
+**Структура B — v2, плоский составной ключ:**
+```
+[pins]                             ← root
+├── "desktop|en|zoom_1"            ← GROUP, имя = viewport|lang|zoom (части опциональны)
+│   ├── Education                  ← группа пинов → slug 'map_education'
+│   │   ├── Pin → Icon + Hover
+│   │   └── Pin
+│   └── Retail
+├── "desktop|en|zoom_2"
+├── "desktop|ar|zoom_1"            ← матрица может быть частичной (ar без zoom_2)
+├── "mobile|en|zoom_1"
+└── ...
+```
+Каждая часть ключа классифицируется по содержимому: viewport-слово /
+ISO-код языка / `zoom_N`. Отсутствующие размерности просто опускаются
+(`"desktop|zoom_1"` без языка, `"desktop|en"` без зума, `"desktop"` — только viewport).
+Преимущества: не нужен детектор варианта, частичная матрица комбинаций
+обрабатывается естественно, нет неоднозначности «есть группа / нет группы».
+
+#### Структура выхода (bare-объект, без `export default` и без внешнего ключа `map_pins`):
 ```js
-export default {
-    map_pins: {
-        map_education: {
-            svg: "map_pin_education",        // SVG иконки группы (desktop)
-            iconWidth: 22,                    // ширина кружочка desktop
-            iconHeight: 22,
-            breakpoints: {
-                768: {
-                    svg: "map_pin_education_mob",
-                    iconWidth: 40,
-                    iconHeight: 40,
-                },
+{
+    map_education: {
+        svg: "map_pin_education",        // SVG иконки группы (desktop)
+        iconWidth: 22,                    // ширина кружочка desktop
+        iconHeight: 22,
+        textColor: "#1e1e1e",             // цвет TEXT-ноды подписи
+        textBgColor: "#ffffff",           // цвет фона Name/Hover-фрейма
+        breakpoints: {
+            768: {
+                svg: "map_pin_education_mob",
+                iconWidth: 40,
+                iconHeight: 40,
+                textColor: "#1e1e1e",
+                textBgColor: "#ffffff",
             },
-            pins: [
-                {
-                    language: ["en"],          // только если есть language-слои
-                    zoom: 1,                   // только если есть zoom-слои (raw level)
-                    left: 637,                 // ЦЕНТР Icon на карте (desktop)
-                    top: 839,
-                    isRight: false,            // подпись справа от пина?
-                    text: "repton_school_abu_dhabi",
-                    breakpoints: {
-                        768: {
-                            left: 646,
-                            top: 848,
-                            isRight: false,    // может отличаться от desktop
-                        },
+        },
+        pins: [
+            {
+                language: ["en"],          // только если есть language-слои
+                minZoom: 2,                // только если есть zoom-слои (логика landmarks v1)
+                maxZoom: 2.99,             // опускается для последнего уровня
+                left: 637,                 // ЦЕНТР Icon на карте (desktop)
+                top: 839,
+                isRight: false,            // подпись справа от пина?
+                text: "repton_school_abu_dhabi",
+                breakpoints: {
+                    768: {
+                        left: 646,
+                        top: 848,
+                        isRight: false,    // может отличаться от desktop
                     },
                 },
-                ...
-            ],
-        },
-        map_health:    { svg, iconWidth, iconHeight, breakpoints, pins: [...] },
-        map_mosque:    { svg, iconWidth, iconHeight, breakpoints, pins: [...] },
-        map_retail:    { svg, iconWidth, iconHeight, breakpoints, pins: [...] },
+            },
+            ...
+        ],
     },
+    map_health:    { svg, iconWidth, iconHeight, textColor, textBgColor, breakpoints, pins: [...] },
+    map_retail:    { svg, iconWidth, iconHeight, textColor, textBgColor, breakpoints, pins: [...] },
 }
 ```
 
@@ -429,9 +456,12 @@ export default {
 - Не зависят от lang/zoom (иконка категории одинакова)
 - Экспортируется по 2 файла на группу — нода Icon из первого встретившегося пина в desktop / mobile
 
-#### Сопоставление desktop ↔ mobile пинов:
-- По ключу `${text}|${lang}|${zoom}` — slug TEXT-ноды + lang + zoom (внутренний ключ, в выходе не сохраняется)
-- Slug устойчив к различиям пробелов/переносов между desktop и mobile
+#### Сопоставление desktop ↔ mobile пинов + дубли текста:
+- Внутри бакета `(group, text, lang, zoom)` каждый desktop-пин парится с **ближайшим по позиции** mobile-пином (`pairLeavesByPosition`, евклидово расстояние центров иконок)
+- **Дубли текста поддерживаются:** несколько пинов с одинаковым `text` в разных местах (хоть в одном вьюпорте, хоть в обоих) сохраняются как отдельные элементы — НЕ дедуплицируются
+- Допущение: desktop и mobile версии одного места лежат в сопоставимом координатном пространстве (виджеты наложены). При разнесённых кластерах работает, пока относительное расположение сохранено
+- Непарные пины (есть только в одном вьюпорте) дают элемент, где обе версии = собственные данные
+- i18n: одинаковый `text` → одна запись перевода (дедуп по slug), это намеренно
 
 #### Категория группы (откуда берётся имя `map_education`/...):
 1. Если pin-фрейм лежит ВНУТРИ родительского слоя — имя родительского слоя (`"Education"`) → `map_education`
@@ -457,15 +487,22 @@ export default {
 - Переиспользует `getLanguageFrames`, `getZoomFrames` из `landmarks-detect.ts`
 - `parsePins` асинхронная (из-за `getMainComponentAsync` для категории) — `Schema.parse`
   возвращает `ParseResult | Promise<ParseResult>`
+- **v2:** `isV2Structure` → `parseCompositeKey` (split по `|`, классификация частей по
+  содержимому) → `getPinLeavesV2` (раскладывает листья по desktop/mobile, флаги выставляются
+  по наличию частей). Дальше — общий код сборки групп/i18n/результата
 - SVG config folder: `pins`
 
-#### Варианты структуры (авто-определяет `detectPinsStructure`):
+#### Варианты структуры:
+**Вложенная** (авто-определяет `detectPinsStructure`):
 | Вариант | Флаги |
 |---|---|
 | `viewports` | только Mobile/Desktop — **дамп в `examples/dumps/pins.json`** |
 | `viewports+languages` | + языковые слои |
-| `viewports+zooms` | + зум-слои |
+| `viewports+zooms` | + зум-слои — **дамп в `examples/dumps/pins-test.json`** |
 | `viewports+languages+zooms` | полная структура |
+
+**v2 (плоская)** — **дамп в `examples/dumps/pins-v2.json`**. Флаги выставляются по
+наличию соответствующих частей в составном ключе хотя бы у одной группы.
 
 ---
 

@@ -1,0 +1,2897 @@
+{
+  "root": {
+    "id": "196:1946",
+    "name": "pins",
+    "type": "GROUP",
+    "visible": true,
+    "bbox": {
+      "x": 20375,
+      "y": 8403,
+      "width": 147,
+      "height": 218
+    },
+    "children": [
+      {
+        "id": "196:2181",
+        "name": "desktop|en|zoom_1",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 20390,
+          "y": 8418,
+          "width": 69,
+          "height": 151
+        },
+        "children": [
+          {
+            "id": "196:2182",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20390,
+              "y": 8418,
+              "width": 69,
+              "height": 151
+            },
+            "children": [
+              {
+                "id": "196:2183",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20390,
+                  "y": 8418,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:2183;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20391,
+                      "y": 8419,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:2183;184:1943;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20391,
+                          "y": 8419,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:2183;184:1943;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20394.08,
+                          "y": 8423.15,
+                          "width": 12.24,
+                          "height": 9.72
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:2183;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20414,
+                      "y": 8418,
+                      "width": 88,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskEducation",
+                    "children": [
+                      {
+                        "id": "I196:2183;184:1946;184:1853",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20424,
+                          "y": 8420,
+                          "width": 68,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:2184",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20439,
+                  "y": 8549,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:2184;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20347,
+                      "y": 8549,
+                      "width": 88,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskEducation",
+                    "children": [
+                      {
+                        "id": "I196:2184;184:1954;184:1853",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20357,
+                          "y": 8551,
+                          "width": 68,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:2184;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20440,
+                      "y": 8550,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:2184;184:1953;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20440,
+                          "y": 8550,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:2184;184:1953;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20443.08,
+                          "y": 8554.15,
+                          "width": 12.24,
+                          "height": 9.72
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "197:1564",
+        "name": "desktop|en|zoom_2",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 20390,
+          "y": 8418,
+          "width": 117,
+          "height": 188
+        },
+        "children": [
+          {
+            "id": "197:1565",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20390,
+              "y": 8418,
+              "width": 69,
+              "height": 151
+            },
+            "children": [
+              {
+                "id": "197:1566",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20390,
+                  "y": 8418,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1566;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20391,
+                      "y": 8419,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I197:1566;184:1943;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20391,
+                          "y": 8419,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I197:1566;184:1943;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20394.08,
+                          "y": 8423.15,
+                          "width": 12.24,
+                          "height": 9.72
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1566;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20414,
+                      "y": 8418,
+                      "width": 88,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskEducation",
+                    "children": [
+                      {
+                        "id": "I197:1566;184:1946;184:1853",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20424,
+                          "y": 8420,
+                          "width": 68,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1567",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20439,
+                  "y": 8549,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I197:1567;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20347,
+                      "y": 8549,
+                      "width": 88,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskEducation",
+                    "children": [
+                      {
+                        "id": "I197:1567;184:1954;184:1853",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20357,
+                          "y": 8551,
+                          "width": 68,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1567;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20440,
+                      "y": 8550,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I197:1567;184:1953;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20440,
+                          "y": 8550,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I197:1567;184:1953;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20443.08,
+                          "y": 8554.15,
+                          "width": 12.24,
+                          "height": 9.72
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "197:1568",
+            "name": "Holet",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20414,
+              "y": 8464,
+              "width": 56,
+              "height": 21
+            },
+            "children": [
+              {
+                "id": "197:1569",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20414,
+                  "y": 8464,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I197:1569;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20354,
+                      "y": 8464,
+                      "width": 56,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskHotel",
+                    "children": [
+                      {
+                        "id": "I197:1569;184:1954;184:1935",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20364,
+                          "y": 8466,
+                          "width": 36,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1569;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20415,
+                      "y": 8465,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I197:1569;184:1953;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20415,
+                          "y": 8465,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I197:1569;184:1953;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20418.6,
+                          "y": 8470.4,
+                          "width": 11.52,
+                          "height": 7.2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1570",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20450,
+                  "y": 8465,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1570;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20451,
+                      "y": 8466,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I197:1570;184:1943;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20451,
+                          "y": 8466,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I197:1570;184:1943;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20454.6,
+                          "y": 8471.4,
+                          "width": 11.52,
+                          "height": 7.2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1570;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20474,
+                      "y": 8465,
+                      "width": 56,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskHotel",
+                    "children": [
+                      {
+                        "id": "I197:1570;184:1946;184:1935",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20484,
+                          "y": 8467,
+                          "width": 36,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "197:1571",
+            "name": "Retail",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20415,
+              "y": 8514,
+              "width": 92,
+              "height": 92
+            },
+            "children": [
+              {
+                "id": "197:1572",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20415,
+                  "y": 8514,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1572;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20416,
+                      "y": 8515,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I197:1572;184:1943;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20416,
+                          "y": 8515,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I197:1572;184:1943;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20420.68,
+                          "y": 8518.51,
+                          "width": 9,
+                          "height": 9
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1572;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20439,
+                      "y": 8514,
+                      "width": 58,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskRetail",
+                    "children": [
+                      {
+                        "id": "I197:1572;184:1946;184:1940",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20449,
+                          "y": 8516,
+                          "width": 38,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1573",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20487,
+                  "y": 8559,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1573;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20488,
+                      "y": 8560,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I197:1573;184:1943;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20488,
+                          "y": 8560,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I197:1573;184:1943;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20492.68,
+                          "y": 8563.51,
+                          "width": 9,
+                          "height": 9
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1573;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20511,
+                      "y": 8559,
+                      "width": 58,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskRetail",
+                    "children": [
+                      {
+                        "id": "I197:1573;184:1946;184:1940",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20521,
+                          "y": 8561,
+                          "width": 38,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1574",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20464,
+                  "y": 8586,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I197:1574;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20402,
+                      "y": 8586,
+                      "width": 58,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskRetail",
+                    "children": [
+                      {
+                        "id": "I197:1574;184:1954;184:1940",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20412,
+                          "y": 8588,
+                          "width": 38,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1574;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20465,
+                      "y": 8587,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I197:1574;184:1953;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20465,
+                          "y": 8587,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I197:1574;184:1953;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20469.68,
+                          "y": 8590.51,
+                          "width": 9,
+                          "height": 9
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "196:1813",
+        "name": "desktop|ar|zoom_1",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 20390,
+          "y": 8418,
+          "width": 117,
+          "height": 188
+        },
+        "children": [
+          {
+            "id": "196:1767",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20390,
+              "y": 8418,
+              "width": 69,
+              "height": 151
+            },
+            "children": [
+              {
+                "id": "196:1739",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20390,
+                  "y": 8418,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1739;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20298,
+                      "y": 8418,
+                      "width": 88,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskEducation",
+                    "children": [
+                      {
+                        "id": "I196:1739;184:1954;184:1853",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20308,
+                          "y": 8420,
+                          "width": 68,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1739;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20391,
+                      "y": 8419,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:1739;184:1953;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20391,
+                          "y": 8419,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:1739;184:1953;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20394.08,
+                          "y": 8423.15,
+                          "width": 12.24,
+                          "height": 9.72
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1801",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20439,
+                  "y": 8549,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1801;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20347,
+                      "y": 8549,
+                      "width": 88,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskEducation",
+                    "children": [
+                      {
+                        "id": "I196:1801;184:1954;184:1853",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20357,
+                          "y": 8551,
+                          "width": 68,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1801;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20440,
+                      "y": 8550,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:1801;184:1953;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20440,
+                          "y": 8550,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:1801;184:1953;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20443.08,
+                          "y": 8554.15,
+                          "width": 12.24,
+                          "height": 9.72
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "196:1768",
+            "name": "Holet",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20414,
+              "y": 8464,
+              "width": 56,
+              "height": 21
+            },
+            "children": [
+              {
+                "id": "196:1746",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20414,
+                  "y": 8464,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1746;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20354,
+                      "y": 8464,
+                      "width": 56,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskHotel",
+                    "children": [
+                      {
+                        "id": "I196:1746;184:1954;184:1935",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20364,
+                          "y": 8466,
+                          "width": 36,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1746;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20415,
+                      "y": 8465,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I196:1746;184:1953;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20415,
+                          "y": 8465,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:1746;184:1953;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20418.6,
+                          "y": 8470.4,
+                          "width": 11.52,
+                          "height": 7.2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1789",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20450,
+                  "y": 8465,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:1789;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20451,
+                      "y": 8466,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I196:1789;184:1943;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20451,
+                          "y": 8466,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:1789;184:1943;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20454.6,
+                          "y": 8471.4,
+                          "width": 11.52,
+                          "height": 7.2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1789;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20474,
+                      "y": 8465,
+                      "width": 56,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskHotel",
+                    "children": [
+                      {
+                        "id": "I196:1789;184:1946;184:1935",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20484,
+                          "y": 8467,
+                          "width": 36,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "196:1769",
+            "name": "Retail",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20415,
+              "y": 8514,
+              "width": 92,
+              "height": 92
+            },
+            "children": [
+              {
+                "id": "196:1758",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20415,
+                  "y": 8514,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1758;184:1954",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20353,
+                      "y": 8514,
+                      "width": 58,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskRetail",
+                    "children": [
+                      {
+                        "id": "I196:1758;184:1954;184:1940",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20363,
+                          "y": 8516,
+                          "width": 38,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1758;184:1953",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20416,
+                      "y": 8515,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I196:1758;184:1953;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20416,
+                          "y": 8515,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:1758;184:1953;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20420.68,
+                          "y": 8518.51,
+                          "width": 9,
+                          "height": 9
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1770",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20487,
+                  "y": 8559,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:1770;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20488,
+                      "y": 8560,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I196:1770;184:1943;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20488,
+                          "y": 8560,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:1770;184:1943;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20492.68,
+                          "y": 8563.51,
+                          "width": 9,
+                          "height": 9
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1770;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20511,
+                      "y": 8559,
+                      "width": 58,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskRetail",
+                    "children": [
+                      {
+                        "id": "I196:1770;184:1946;184:1940",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20521,
+                          "y": 8561,
+                          "width": 38,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1777",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20464,
+                  "y": 8586,
+                  "width": 20,
+                  "height": 20
+                },
+                "component": "Viewport=Desktop, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:1777;184:1943",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20465,
+                      "y": 8587,
+                      "width": 18,
+                      "height": 18
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I196:1777;184:1943;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20465,
+                          "y": 8587,
+                          "width": 18,
+                          "height": 18
+                        }
+                      },
+                      {
+                        "id": "I196:1777;184:1943;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20469.68,
+                          "y": 8590.51,
+                          "width": 9,
+                          "height": 9
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1777;184:1946",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20488,
+                      "y": 8586,
+                      "width": 58,
+                      "height": 20
+                    },
+                    "component": "Hover=DeskRetail",
+                    "children": [
+                      {
+                        "id": "I196:1777;184:1946;184:1940",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20498,
+                          "y": 8588,
+                          "width": 38,
+                          "height": 16
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "196:1994",
+        "name": "mobile|en|zoom_1",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 20375,
+          "y": 8403,
+          "width": 99,
+          "height": 181
+        },
+        "children": [
+          {
+            "id": "196:1995",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20375,
+              "y": 8403,
+              "width": 99,
+              "height": 181
+            },
+            "children": [
+              {
+                "id": "196:1996",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20375,
+                  "y": 8403,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:1996;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20376,
+                      "y": 8404,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:1996;184:1960;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20376,
+                          "y": 8404,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1996;184:1960;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20384.21,
+                          "y": 8415.08,
+                          "width": 32.64,
+                          "height": 25.92
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1996;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20429,
+                      "y": 8403,
+                      "width": 194,
+                      "height": 50
+                    },
+                    "component": "Hover=MobEducation",
+                    "children": [
+                      {
+                        "id": "I196:1996;184:1959;196:2152",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20453,
+                          "y": 8411,
+                          "width": 146,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1997",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20424,
+                  "y": 8534,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1997;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20254,
+                      "y": 8534,
+                      "width": 166,
+                      "height": 50
+                    },
+                    "component": "Hover=MobEducation",
+                    "children": [
+                      {
+                        "id": "I196:1997;184:1966;196:2152",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20264,
+                          "y": 8542,
+                          "width": 146,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1997;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20425,
+                      "y": 8535,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:1997;184:1965;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20425,
+                          "y": 8535,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1997;184:1965;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20433.21,
+                          "y": 8546.08,
+                          "width": 32.64,
+                          "height": 25.92
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "197:1611",
+        "name": "mobile|en|zoom_2",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 20375,
+          "y": 8403,
+          "width": 147,
+          "height": 218
+        },
+        "children": [
+          {
+            "id": "197:1612",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20375,
+              "y": 8403,
+              "width": 99,
+              "height": 181
+            },
+            "children": [
+              {
+                "id": "197:1613",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20375,
+                  "y": 8403,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1613;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20376,
+                      "y": 8404,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I197:1613;184:1960;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20376,
+                          "y": 8404,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I197:1613;184:1960;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20384.21,
+                          "y": 8415.08,
+                          "width": 32.64,
+                          "height": 25.92
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1613;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20429,
+                      "y": 8403,
+                      "width": 194,
+                      "height": 50
+                    },
+                    "component": "Hover=MobEducation",
+                    "children": [
+                      {
+                        "id": "I197:1613;184:1959;196:2152",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20453,
+                          "y": 8411,
+                          "width": 146,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1614",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20424,
+                  "y": 8534,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I197:1614;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20254,
+                      "y": 8534,
+                      "width": 166,
+                      "height": 50
+                    },
+                    "component": "Hover=MobEducation",
+                    "children": [
+                      {
+                        "id": "I197:1614;184:1966;196:2152",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20264,
+                          "y": 8542,
+                          "width": 146,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1614;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20425,
+                      "y": 8535,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I197:1614;184:1965;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20425,
+                          "y": 8535,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I197:1614;184:1965;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20433.21,
+                          "y": 8546.08,
+                          "width": 32.64,
+                          "height": 25.92
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "197:1615",
+            "name": "Holet",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20399,
+              "y": 8449,
+              "width": 86,
+              "height": 51
+            },
+            "children": [
+              {
+                "id": "197:1616",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20399,
+                  "y": 8449,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I197:1616;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20270,
+                      "y": 8449,
+                      "width": 125,
+                      "height": 50
+                    },
+                    "component": "Hover=MobHotel",
+                    "children": [
+                      {
+                        "id": "I197:1616;184:1966;196:2154",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20294,
+                          "y": 8457,
+                          "width": 77,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1616;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20400,
+                      "y": 8450,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I197:1616;184:1965;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20400,
+                          "y": 8450,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I197:1616;184:1965;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20409.6,
+                          "y": 8464.4,
+                          "width": 30.72,
+                          "height": 19.2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1617",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20435,
+                  "y": 8450,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1617;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20436,
+                      "y": 8451,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I197:1617;184:1960;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20436,
+                          "y": 8451,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I197:1617;184:1960;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20445.6,
+                          "y": 8465.4,
+                          "width": 30.72,
+                          "height": 19.2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1617;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20489,
+                      "y": 8450,
+                      "width": 125,
+                      "height": 50
+                    },
+                    "component": "Hover=MobHotel",
+                    "children": [
+                      {
+                        "id": "I197:1617;184:1959;196:2154",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20513,
+                          "y": 8458,
+                          "width": 77,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "197:1618",
+            "name": "Retail",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20400,
+              "y": 8499,
+              "width": 122,
+              "height": 122
+            },
+            "children": [
+              {
+                "id": "197:1619",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20400,
+                  "y": 8499,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1619;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20401,
+                      "y": 8500,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I197:1619;184:1960;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20401,
+                          "y": 8500,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I197:1619;184:1960;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20413.48,
+                          "y": 8509.36,
+                          "width": 24,
+                          "height": 24
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1619;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20454,
+                      "y": 8499,
+                      "width": 129,
+                      "height": 50
+                    },
+                    "component": "Hover=MobRetail",
+                    "children": [
+                      {
+                        "id": "I197:1619;184:1959;196:2156",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20478,
+                          "y": 8507,
+                          "width": 81,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1620",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20472,
+                  "y": 8544,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I197:1620;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20473,
+                      "y": 8545,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I197:1620;184:1960;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20473,
+                          "y": 8545,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I197:1620;184:1960;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20485.48,
+                          "y": 8554.36,
+                          "width": 24,
+                          "height": 24
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1620;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20526,
+                      "y": 8544,
+                      "width": 129,
+                      "height": 50
+                    },
+                    "component": "Hover=MobRetail",
+                    "children": [
+                      {
+                        "id": "I197:1620;184:1959;196:2156",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20550,
+                          "y": 8552,
+                          "width": 81,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "197:1621",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20449,
+                  "y": 8571,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I197:1621;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20316,
+                      "y": 8571,
+                      "width": 129,
+                      "height": 50
+                    },
+                    "component": "Hover=MobRetail",
+                    "children": [
+                      {
+                        "id": "I197:1621;184:1966;196:2156",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20340,
+                          "y": 8579,
+                          "width": 81,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I197:1621;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20450,
+                      "y": 8572,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I197:1621;184:1965;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20450,
+                          "y": 8572,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I197:1621;184:1965;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20462.48,
+                          "y": 8581.36,
+                          "width": 24,
+                          "height": 24
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "196:1814",
+        "name": "mobile|ar|zoom_1",
+        "type": "GROUP",
+        "visible": true,
+        "bbox": {
+          "x": 20375,
+          "y": 8403,
+          "width": 147,
+          "height": 218
+        },
+        "children": [
+          {
+            "id": "196:1815",
+            "name": "Education",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20375,
+              "y": 8403,
+              "width": 99,
+              "height": 181
+            },
+            "children": [
+              {
+                "id": "196:1816",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20375,
+                  "y": 8403,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1816;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20205,
+                      "y": 8403,
+                      "width": 166,
+                      "height": 50
+                    },
+                    "component": "Hover=MobEducation",
+                    "children": [
+                      {
+                        "id": "I196:1816;184:1966;196:2152",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20215,
+                          "y": 8411,
+                          "width": 146,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1816;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20376,
+                      "y": 8404,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:1816;184:1965;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20376,
+                          "y": 8404,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1816;184:1965;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20384.21,
+                          "y": 8415.08,
+                          "width": 32.64,
+                          "height": 25.92
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1817",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20424,
+                  "y": 8534,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1817;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20254,
+                      "y": 8534,
+                      "width": 166,
+                      "height": 50
+                    },
+                    "component": "Hover=MobEducation",
+                    "children": [
+                      {
+                        "id": "I196:1817;184:1966;196:2152",
+                        "name": "Education",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20264,
+                          "y": 8542,
+                          "width": 146,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1817;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20425,
+                      "y": 8535,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Education",
+                    "children": [
+                      {
+                        "id": "I196:1817;184:1965;184:1787",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20425,
+                          "y": 8535,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1817;184:1965;184:1788",
+                        "name": "Education",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20433.21,
+                          "y": 8546.08,
+                          "width": 32.64,
+                          "height": 25.92
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "196:1818",
+            "name": "Holet",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20399,
+              "y": 8449,
+              "width": 86,
+              "height": 51
+            },
+            "children": [
+              {
+                "id": "196:1819",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20399,
+                  "y": 8449,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1819;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20270,
+                      "y": 8449,
+                      "width": 125,
+                      "height": 50
+                    },
+                    "component": "Hover=MobHotel",
+                    "children": [
+                      {
+                        "id": "I196:1819;184:1966;196:2154",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20294,
+                          "y": 8457,
+                          "width": 77,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1819;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20400,
+                      "y": 8450,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I196:1819;184:1965;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20400,
+                          "y": 8450,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1819;184:1965;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20409.6,
+                          "y": 8464.4,
+                          "width": 30.72,
+                          "height": 19.2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1820",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20435,
+                  "y": 8450,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:1820;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20436,
+                      "y": 8451,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Hotel",
+                    "children": [
+                      {
+                        "id": "I196:1820;184:1960;184:1795",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20436,
+                          "y": 8451,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1820;184:1960;184:1797",
+                        "name": "Hotel",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20445.6,
+                          "y": 8465.4,
+                          "width": 30.72,
+                          "height": 19.2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1820;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20489,
+                      "y": 8450,
+                      "width": 125,
+                      "height": 50
+                    },
+                    "component": "Hover=MobHotel",
+                    "children": [
+                      {
+                        "id": "I196:1820;184:1959;196:2154",
+                        "name": "Hotel",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20513,
+                          "y": 8458,
+                          "width": 77,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "196:1821",
+            "name": "Retail",
+            "type": "GROUP",
+            "visible": true,
+            "bbox": {
+              "x": 20400,
+              "y": 8499,
+              "width": 122,
+              "height": 122
+            },
+            "children": [
+              {
+                "id": "196:1822",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20400,
+                  "y": 8499,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Left",
+                "children": [
+                  {
+                    "id": "I196:1822;184:1966",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20267,
+                      "y": 8499,
+                      "width": 129,
+                      "height": 50
+                    },
+                    "component": "Hover=MobRetail",
+                    "children": [
+                      {
+                        "id": "I196:1822;184:1966;196:2156",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20291,
+                          "y": 8507,
+                          "width": 81,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1822;184:1965",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20401,
+                      "y": 8500,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I196:1822;184:1965;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20401,
+                          "y": 8500,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1822;184:1965;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20413.48,
+                          "y": 8509.36,
+                          "width": 24,
+                          "height": 24
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1823",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20472,
+                  "y": 8544,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:1823;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20473,
+                      "y": 8545,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I196:1823;184:1960;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20473,
+                          "y": 8545,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1823;184:1960;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20485.48,
+                          "y": 8554.36,
+                          "width": 24,
+                          "height": 24
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1823;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20526,
+                      "y": 8544,
+                      "width": 129,
+                      "height": 50
+                    },
+                    "component": "Hover=MobRetail",
+                    "children": [
+                      {
+                        "id": "I196:1823;184:1959;196:2156",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20550,
+                          "y": 8552,
+                          "width": 81,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "196:1824",
+                "name": "Pin",
+                "type": "INSTANCE",
+                "visible": true,
+                "bbox": {
+                  "x": 20449,
+                  "y": 8571,
+                  "width": 50,
+                  "height": 50
+                },
+                "component": "Viewport=Mobile, Pos=Right",
+                "children": [
+                  {
+                    "id": "I196:1824;184:1960",
+                    "name": "Icon",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20450,
+                      "y": 8572,
+                      "width": 48,
+                      "height": 48
+                    },
+                    "component": "Type=Retail",
+                    "children": [
+                      {
+                        "id": "I196:1824;184:1960;184:1800",
+                        "name": "Circle",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20450,
+                          "y": 8572,
+                          "width": 48,
+                          "height": 48
+                        }
+                      },
+                      {
+                        "id": "I196:1824;184:1960;184:1802",
+                        "name": "Retail",
+                        "type": "VECTOR",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20462.48,
+                          "y": 8581.36,
+                          "width": 24,
+                          "height": 24
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "I196:1824;184:1959",
+                    "name": "Hover",
+                    "type": "INSTANCE",
+                    "visible": true,
+                    "bbox": {
+                      "x": 20503,
+                      "y": 8571,
+                      "width": 129,
+                      "height": 50
+                    },
+                    "component": "Hover=MobRetail",
+                    "children": [
+                      {
+                        "id": "I196:1824;184:1959;196:2156",
+                        "name": "Retail",
+                        "type": "TEXT",
+                        "visible": true,
+                        "bbox": {
+                          "x": 20527,
+                          "y": 8579,
+                          "width": 81,
+                          "height": 34
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "dumpedAt": "2026-05-27T15:06:54.151Z",
+    "selectionName": "pins",
+    "selectionType": "GROUP",
+    "nodeCount": 213,
+    "maxDepth": 0,
+    "includeHidden": false,
+    "includeBBox": true
+  }
+}

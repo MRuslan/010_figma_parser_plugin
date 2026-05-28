@@ -63,7 +63,11 @@
 
       case 'SCHEMAS_LIST':
         schemas = msg.schemas;
-        if (!selectedSchemaId && schemas.length > 0) {
+        // Restore last-selected schema if it still exists in the list;
+        // fall back to first only if nothing is currently selected.
+        if (msg.lastSelectedId && schemas.some((s) => s.id === msg.lastSelectedId)) {
+          selectedSchemaId = msg.lastSelectedId;
+        } else if (!selectedSchemaId && schemas.length > 0) {
           selectedSchemaId = schemas[0].id;
         }
         break;
@@ -123,6 +127,12 @@
   sendMessage({ type: 'GET_SCHEMAS' });
 
   // ─── Actions ─────────────────────────────────────────────
+
+  function selectSchema(id: string): void {
+    if (selectedSchemaId === id) return;
+    selectedSchemaId = id;
+    sendMessage({ type: 'SAVE_SELECTED_SCHEMA', schemaId: id });
+  }
 
   function startParsing(): void {
     logs = [];
@@ -360,7 +370,7 @@
           <button
             class="schema-btn"
             class:active={selectedSchemaId === schema.id}
-            on:click={() => (selectedSchemaId = schema.id)}
+            on:click={() => selectSchema(schema.id)}
           >
             {schema.name}
           </button>

@@ -11,6 +11,24 @@ figma.showUI(__html__, {
   title: 'Figma Parser',
 });
 
+// ─── Persistence ─────────────────────────────────────────────
+const SELECTED_SCHEMA_KEY = 'lastSelectedSchemaId';
+
+async function readLastSelectedSchemaId(): Promise<string | undefined> {
+  try {
+    const val = await figma.clientStorage.getAsync(SELECTED_SCHEMA_KEY);
+    return typeof val === 'string' ? val : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+async function sendSchemasList(): Promise<void> {
+  const schemas = getSchemasInfo();
+  const lastSelectedId = await readLastSelectedSchemaId();
+  sendToUI({ type: 'SCHEMAS_LIST', schemas, lastSelectedId });
+}
+
 // ─── Helpers ─────────────────────────────────────────────────
 
 function sendToUI(msg: MessageToUI): void {
@@ -52,7 +70,16 @@ figma.ui.on('message', (msg: MessageToPlugin) => {
     }
 
     case 'GET_SCHEMAS': {
-      sendToUI({ type: 'SCHEMAS_LIST', schemas: getSchemasInfo() });
+      void sendSchemasList();
+      break;
+    }
+
+    case 'SAVE_SELECTED_SCHEMA': {
+      // Persist the user's choice — restored next time the plugin opens
+      figma.clientStorage.setAsync(SELECTED_SCHEMA_KEY, msg.schemaId).catch((e) => {
+        const message = e instanceof Error ? e.message : String(e);
+        sendToUI({ type: 'PARSE_PROGRESS', step: `Не удалось сохранить выбор схемы: ${message}`, status: 'warning' });
+      });
       break;
     }
 
@@ -180,4 +207,4 @@ figma.ui.on('message', (msg: MessageToPlugin) => {
 // ─── Init ────────────────────────────────────────────────────
 
 sendToUI({ type: 'SELECTION_DATA', data: getCurrentSelection() });
-sendToUI({ type: 'SCHEMAS_LIST', schemas: getSchemasInfo() });
+void sendSchemasList();

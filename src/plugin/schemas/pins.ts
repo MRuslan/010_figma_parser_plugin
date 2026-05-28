@@ -1,6 +1,6 @@
 /// <reference types="@figma/plugin-typings" />
 
-import { nameIncludes, round2, slugify, getZoomLevel, wrapExport, toJSObject } from '../utils';
+import { nameIncludes, round2, slugify, getZoomLevel, isLanguageCode, wrapExport, toJSObject } from '../utils';
 import type { LogEntry, ParseResult, SvgExportItem } from '../types';
 import { buildSvgConfig, getBBox, getChildNodes, getMapOrigin } from './landmarks-common';
 import { getLanguageFrames, getZoomFrames } from './landmarks-detect';
@@ -381,6 +381,101 @@ async function getPinLeaves(
   return leaves;
 }
 
+// ─── V2 structure: composite key "viewport|lang|zoom" ──────
+
+interface CompositeKey {
+  viewport: 'mobile' | 'desktop' | null;
+  lang: string | null;
+  zoom: number | null;
+}
+
+/**
+ * Parses a composite group name like "desktop|en|zoom_1".
+ * Each part is classified by CONTENT (viewport word / language code / zoom_N) —
+ * order and presence are flexible. Missing dimensions are simply omitted:
+ *   "desktop|zoom_1" (no lang), "desktop|en" (no zoom), "desktop" (only viewport).
+ * Returns null if the name has no "|" separator (not a v2 key).
+ */
+function parseCompositeKey(name: string): CompositeKey | null {
+  if (!name.includes('|')) return null;
+  const parts = name.split('|').map((p) => p.trim()).filter(Boolean);
+
+  let viewport: 'mobile' | 'desktop' | null = null;
+  let lang: string | null = null;
+  let zoom: number | null = null;
+
+  for (const part of parts) {
+    if (nameIncludes(part, 'mobile') || nameIncludes(part, 'mob')) {
+      viewport = 'mobile';
+    } else if (nameIncludes(part, 'desktop') || nameIncludes(part, 'desk')) {
+      viewport = 'desktop';
+    } else if (getZoomLevel(part) !== null) {
+      zoom = getZoomLevel(part);
+    } else if (isLanguageCode(part)) {
+      lang = part.toLowerCase();
+    }
+  }
+
+  return { viewport, lang, zoom };
+}
+
+/** True if any direct child of the pins root uses a composite "a|b|c" name. */
+function isV2Structure(pinsRoot: SceneNode): boolean {
+  return getChildNodes(pinsRoot).some((c) => isVisible(c) && c.name.includes('|'));
+}
+
+interface V2Collection {
+  dLeaves: PinLeaf[];
+  mLeaves: PinLeaf[];
+  flags: PinsStructureFlags;
+}
+
+/**
+ * Collects pin leaves from a v2 (flat composite-key) structure.
+ * Each root child "viewport|lang|zoom" → category groups → Pin instances.
+ * Routes leaves into desktop/mobile buckets by the key's viewport part.
+ */
+async function getPinLeavesV2(pinsRoot: SceneNode, logs: LogEntry[]): Promise<V2Collection> {
+  const dLeaves: PinLeaf[] = [];
+  const mLeaves: PinLeaf[] = [];
+  let hasViewports = false;
+  let hasLanguages = false;
+  let hasZooms = false;
+
+  for (const comboGroup of getChildNodes(pinsRoot)) {
+    if (!isVisible(comboGroup)) continue;
+    const key = parseCompositeKey(comboGroup.name);
+    if (!key) {
+      logs.push({
+        step: `  ⚠ Пропущена группа "${comboGroup.name.trim()}" — нет составного ключа "viewport|lang|zoom"`,
+        status: 'warning',
+      });
+      continue;
+    }
+
+    if (key.viewport) hasViewports = true;
+    if (key.lang) hasLanguages = true;
+    if (key.zoom !== null) hasZooms = true;
+
+    const lang = key.lang ?? 'en';
+    const zoom = key.zoom ?? 0;
+
+    const comboLeaves = await collectPinsFromContainer(comboGroup, lang, zoom, logs);
+    if (key.viewport === 'mobile') {
+      mLeaves.push(...comboLeaves);
+    } else {
+      // default to desktop (viewport absent or explicitly desktop)
+      dLeaves.push(...comboLeaves);
+    }
+  }
+
+  return {
+    dLeaves,
+    mLeaves,
+    flags: { viewports: hasViewports, languages: hasLanguages, zooms: hasZooms },
+  };
+}
+
 // ─── SVG naming ────────────────────────────────────────────
 
 function getPinSvgName(groupCode: string, isMobile: boolean): string {
@@ -392,14 +487,11 @@ function getPinSvgName(groupCode: string, isMobile: boolean): string {
 // ─── Group assembly ────────────────────────────────────────
 
 interface GroupCollector {
-  /** First desktop leaf (used for icon size + svg export node) */
-  firstDesktopLeaf: PinLeaf | null;
-  /** First mobile leaf (used for icon size + svg export node) */
-  firstMobileLeaf: PinLeaf | null;
-  /** Map key: text|lang|zoom → desktop / mobile leaves */
-  dMap: Map<string, PinLeaf>;
-  mMap: Map<string, PinLeaf>;
-  /** Ordered triples (text, lang, zoom) — first-seen wins, desktop first */
+  /** ALL desktop leaves (duplicates by text allowed — different positions kept) */
+  desktopLeaves: PinLeaf[];
+  /** ALL mobile leaves */
+  mobileLeaves: PinLeaf[];
+  /** Ordered (text, lang, zoom) dimensions — first-seen wins, desktop first */
   textsInOrder: string[];
   langsInOrder: string[];
   zoomsInOrder: number[];
@@ -408,10 +500,8 @@ interface GroupCollector {
 
 function makeCollector(): GroupCollector {
   return {
-    firstDesktopLeaf: null,
-    firstMobileLeaf: null,
-    dMap: new Map(),
-    mMap: new Map(),
+    desktopLeaves: [],
+    mobileLeaves: [],
     textsInOrder: [],
     langsInOrder: [],
     zoomsInOrder: [],
@@ -428,18 +518,61 @@ function collectLeaf(
   leaf: PinLeaf,
   fromDesktop: boolean
 ): void {
-  const key = `${leaf.text}|${leaf.lang}|${leaf.zoom}`;
+  // Keep EVERY leaf — multiple pins with the same text live at different positions.
   if (fromDesktop) {
-    if (!collector.firstDesktopLeaf) collector.firstDesktopLeaf = leaf;
-    if (!collector.dMap.has(key)) collector.dMap.set(key, leaf);
+    collector.desktopLeaves.push(leaf);
   } else {
-    if (!collector.firstMobileLeaf) collector.firstMobileLeaf = leaf;
-    if (!collector.mMap.has(key)) collector.mMap.set(key, leaf);
+    collector.mobileLeaves.push(leaf);
   }
   pushIfNew(collector.textsInOrder, leaf.text);
   pushIfNew(collector.langsInOrder, leaf.lang);
   pushIfNew(collector.zoomsInOrder, leaf.zoom);
   if (!collector.textRaws.has(leaf.text)) collector.textRaws.set(leaf.text, leaf.textRaw);
+}
+
+// ─── Position-based desktop ↔ mobile pairing ───────────────
+
+const leafCenterX = (l: PinLeaf) => l.iconBBox.x + l.iconBBox.width / 2;
+const leafCenterY = (l: PinLeaf) => l.iconBBox.y + l.iconBBox.height / 2;
+
+/**
+ * Greedily pairs each desktop leaf to the NEAREST (by icon center) mobile leaf
+ * within the same (text, lang, zoom) bucket. Leaves with no counterpart yield
+ * a one-sided pair. Assumes desktop & mobile pins of the same place share a
+ * comparable map coordinate space (true when viewports are overlaid).
+ */
+function pairLeavesByPosition(
+  dBucket: PinLeaf[],
+  mBucket: PinLeaf[]
+): Array<{ d: PinLeaf | null; m: PinLeaf | null }> {
+  const pairs: Array<{ d: PinLeaf | null; m: PinLeaf | null }> = [];
+  const used = new Set<number>();
+
+  for (const d of dBucket) {
+    const dx = leafCenterX(d);
+    const dy = leafCenterY(d);
+    let bestIdx = -1;
+    let bestDist = Infinity;
+    for (let i = 0; i < mBucket.length; i++) {
+      if (used.has(i)) continue;
+      const dist = (dx - leafCenterX(mBucket[i])) ** 2 + (dy - leafCenterY(mBucket[i])) ** 2;
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestIdx = i;
+      }
+    }
+    if (bestIdx >= 0) {
+      used.add(bestIdx);
+      pairs.push({ d, m: mBucket[bestIdx] });
+    } else {
+      pairs.push({ d, m: null });
+    }
+  }
+  // Mobile leaves with no desktop counterpart
+  for (let i = 0; i < mBucket.length; i++) {
+    if (!used.has(i)) pairs.push({ d: null, m: mBucket[i] });
+  }
+  return pairs;
 }
 
 function buildGroup(
@@ -452,7 +585,9 @@ function buildGroup(
   svgExports: SvgExportItem[],
   logs: LogEntry[]
 ): PinGroup | null {
-  const primary = collector.firstDesktopLeaf ?? collector.firstMobileLeaf;
+  const firstDesktopLeaf = collector.desktopLeaves[0] ?? null;
+  const firstMobileLeaf = collector.mobileLeaves[0] ?? null;
+  const primary = firstDesktopLeaf ?? firstMobileLeaf;
   if (!primary) {
     logs.push({ step: `  ⚠ "${groupNameRaw}" — нет пинов`, status: 'warning' });
     return null;
@@ -462,21 +597,25 @@ function buildGroup(
   const mobileSvg = getPinSvgName(groupCode, true);
 
   // Icon sizes — desktop from first desktop leaf (fallback to mobile), mobile from first mobile leaf (fallback to desktop)
-  const dIcon = collector.firstDesktopLeaf?.iconBBox ?? collector.firstMobileLeaf!.iconBBox;
-  const mIcon = collector.firstMobileLeaf?.iconBBox ?? collector.firstDesktopLeaf!.iconBBox;
+  const dIcon = firstDesktopLeaf?.iconBBox ?? firstMobileLeaf!.iconBBox;
+  const mIcon = firstMobileLeaf?.iconBBox ?? firstDesktopLeaf!.iconBBox;
 
   // SVG export — desktop node from first desktop leaf, mobile node from first mobile leaf
-  if (collector.firstDesktopLeaf) {
-    svgExports.push({ name: desktopSvg, nodeId: collector.firstDesktopLeaf.iconNode.id });
-  } else if (collector.firstMobileLeaf) {
+  if (firstDesktopLeaf) {
+    svgExports.push({ name: desktopSvg, nodeId: firstDesktopLeaf.iconNode.id });
+  } else if (firstMobileLeaf) {
     // No desktop — still export the desktop-named SVG from mobile node to keep config consistent
-    svgExports.push({ name: desktopSvg, nodeId: collector.firstMobileLeaf.iconNode.id });
+    svgExports.push({ name: desktopSvg, nodeId: firstMobileLeaf.iconNode.id });
   }
-  if (collector.firstMobileLeaf) {
-    svgExports.push({ name: mobileSvg, nodeId: collector.firstMobileLeaf.iconNode.id });
-  } else if (collector.firstDesktopLeaf) {
-    svgExports.push({ name: mobileSvg, nodeId: collector.firstDesktopLeaf.iconNode.id });
+  if (firstMobileLeaf) {
+    svgExports.push({ name: mobileSvg, nodeId: firstMobileLeaf.iconNode.id });
+  } else if (firstDesktopLeaf) {
+    svgExports.push({ name: mobileSvg, nodeId: firstDesktopLeaf.iconNode.id });
   }
+
+  // Bucket filter: leaves matching a given (text, lang, zoom)
+  const bucket = (leaves: PinLeaf[], text: string, lang: string, zoom: number) =>
+    leaves.filter((l) => l.text === text && l.lang === lang && l.zoom === zoom);
 
   // Build pins[]: ordered by text → lang → zoom
   // Zoom levels sorted ascending — needed for minZoom/maxZoom (landmarks v1 logic)
@@ -488,57 +627,54 @@ function buildGroup(
       for (let zi = 0; zi < sortedZooms.length; zi++) {
         const zoom = sortedZooms[zi];
         const nextZoom = sortedZooms[zi + 1];
-        const key = `${text}|${lang}|${zoom}`;
-        const dLeaf = collector.dMap.get(key);
-        const mLeaf = collector.mMap.get(key);
-        if (!dLeaf && !mLeaf) continue;
 
-        const primaryLeaf = dLeaf ?? mLeaf!;
-        const mobileLeaf = mLeaf ?? dLeaf!;
+        const dBucket = bucket(collector.desktopLeaves, text, lang, zoom);
+        const mBucket = bucket(collector.mobileLeaves, text, lang, zoom);
+        if (dBucket.length === 0 && mBucket.length === 0) continue;
 
-        const dCenterX = primaryLeaf.iconBBox.x + primaryLeaf.iconBBox.width / 2;
-        const dCenterY = primaryLeaf.iconBBox.y + primaryLeaf.iconBBox.height / 2;
-        const mCenterX = mobileLeaf.iconBBox.x + mobileLeaf.iconBBox.width / 2;
-        const mCenterY = mobileLeaf.iconBBox.y + mobileLeaf.iconBBox.height / 2;
-
-        // ── minZoom / maxZoom (landmarks v1 logic) ──
+        // ── minZoom / maxZoom (landmarks v1 logic) — computed at (text, lang) level ──
         // Only emitted when zoom layers exist in Figma.
         // - minZoom: only for levels > 1 (level 1 = visible from the start)
         // - maxZoom: only when next zoom level exists AND this (text, lang) is NOT in it
-        //            → "N.99" (visible up to just before next level)
-        //            last level OR exists in next → no maxZoom (continues)
+        //            → "N.99" (visible up to just before next level); else omitted
         let minZoom: number | undefined;
         let maxZoom: number | undefined;
         if (flags.zooms) {
-          if (zoom > 1) {
-            minZoom = zoom;
-          }
+          if (zoom > 1) minZoom = zoom;
           if (nextZoom !== undefined) {
-            const nextKey = `${text}|${lang}|${nextZoom}`;
             const existsInNext =
-              collector.dMap.has(nextKey) || collector.mMap.has(nextKey);
-            if (!existsInNext) {
-              maxZoom = parseFloat(`${zoom}.99`);
-            }
+              bucket(collector.desktopLeaves, text, lang, nextZoom).length > 0 ||
+              bucket(collector.mobileLeaves, text, lang, nextZoom).length > 0;
+            if (!existsInNext) maxZoom = parseFloat(`${zoom}.99`);
           }
         }
 
-        const item: PinItem = {
-          language: flags.languages ? [lang] : undefined,
-          minZoom,
-          maxZoom,
-          left: round2(dCenterX - originX),
-          top: round2(dCenterY - originY),
-          isRight: primaryLeaf.isRight,
-          text,
-          breakpoints: {
-            768: {
-              left: round2(mCenterX - originX),
-              top: round2(mCenterY - originY),
-              isRight: mobileLeaf.isRight,
+        // Pair desktop ↔ mobile within this bucket by nearest position —
+        // multiple same-text pins in different places become separate items.
+        const pairs = pairLeavesByPosition(dBucket, mBucket);
+
+        for (const { d, m } of pairs) {
+          const primaryLeaf = d ?? m!;
+          const mobileLeaf = m ?? d!;
+
+          const item: PinItem = {
+            language: flags.languages ? [lang] : undefined,
+            minZoom,
+            maxZoom,
+            left: round2(leafCenterX(primaryLeaf) - originX),
+            top: round2(leafCenterY(primaryLeaf) - originY),
+            isRight: primaryLeaf.isRight,
+            text,
+            breakpoints: {
+              768: {
+                left: round2(leafCenterX(mobileLeaf) - originX),
+                top: round2(leafCenterY(mobileLeaf) - originY),
+                isRight: mobileLeaf.isRight,
+              },
             },
-          },
-        };
+          };
+          pins.push(item);
+        }
 
         const langNote = flags.languages ? ` [${lang}]` : '';
         const zoomNote = flags.zooms ? ` zoom:${zoom}` : '';
@@ -548,10 +684,9 @@ function buildGroup(
             : '';
         const rawName = collector.textRaws.get(text) ?? text;
         logs.push({
-          step: `  ✓ ${groupNameRaw} → "${rawName.replace(/\s+/g, ' ').trim()}"${langNote}${zoomNote}${rangeNote}`,
+          step: `  ✓ ${groupNameRaw} → "${rawName.replace(/\s+/g, ' ').trim()}" ×${pairs.length}${langNote}${zoomNote}${rangeNote}`,
           status: 'success',
         });
-        pins.push(item);
       }
     }
   }
@@ -560,8 +695,8 @@ function buildGroup(
 
   // Colors — from first desktop leaf (or mobile fallback) for base,
   // from first mobile leaf (or desktop fallback) for breakpoint
-  const baseLeaf = collector.firstDesktopLeaf ?? collector.firstMobileLeaf!;
-  const mobLeaf = collector.firstMobileLeaf ?? collector.firstDesktopLeaf!;
+  const baseLeaf = firstDesktopLeaf ?? firstMobileLeaf!;
+  const mobLeaf = firstMobileLeaf ?? firstDesktopLeaf!;
 
   return {
     svg: desktopSvg,
@@ -707,21 +842,46 @@ export async function parsePins(selectedNode: SceneNode): Promise<ParseResult> {
     return { output: null, svgConfig: null, svgExports: null, logs, errors };
   }
 
-  const profile = detectPinsStructure(pinsFrame);
-  logs.push({ step: `Вариант структуры: ${profile.variantLabel}`, status: 'info' });
-
-  if (profile.variant === 'unknown') {
-    errors.push('Не удалось определить структуру. Ожидаются Viewports (Mobile / Desktop).');
-    return { output: null, svgConfig: null, svgExports: null, logs, errors };
-  }
-
   const { originX, originY } = getMapOrigin(pinsFrame, logs);
-  const { mobile, desktop } = findPinsViewports(pinsFrame);
-  const flags = profile.flags;
 
-  // Collect all leaves from both viewports
-  const dLeaves = desktop ? await getPinLeaves(desktop, flags, 'en', logs) : [];
-  const mLeaves = mobile ? await getPinLeaves(mobile, flags, 'en', logs) : [];
+  // Two supported structures, auto-detected:
+  //  • v2 (flat): root → "viewport|lang|zoom" → category → Pin
+  //  • nested:    root → Viewport → [lang] → [zoom] → [category] → Pin
+  let dLeaves: PinLeaf[];
+  let mLeaves: PinLeaf[];
+  let flags: PinsStructureFlags;
+
+  if (isV2Structure(pinsFrame)) {
+    const v2 = await getPinLeavesV2(pinsFrame, logs);
+    dLeaves = v2.dLeaves;
+    mLeaves = v2.mLeaves;
+    flags = v2.flags;
+    const parts = [
+      flags.viewports ? 'Viewports' : null,
+      flags.languages ? 'Languages' : null,
+      flags.zooms ? 'Zooms' : null,
+    ].filter(Boolean);
+    logs.push({
+      step: `Структура: v2 (составной ключ) — ${parts.join(' + ') || 'плоская'}`,
+      status: 'info',
+    });
+  } else {
+    const profile = detectPinsStructure(pinsFrame);
+    logs.push({ step: `Структура: вложенная — ${profile.variantLabel}`, status: 'info' });
+
+    if (profile.variant === 'unknown') {
+      errors.push(
+        'Не удалось определить структуру. Ожидаются Viewports (Mobile / Desktop) ' +
+          'или составные ключи вида "viewport|lang|zoom".'
+      );
+      return { output: null, svgConfig: null, svgExports: null, logs, errors };
+    }
+
+    flags = profile.flags;
+    const { mobile, desktop } = findPinsViewports(pinsFrame);
+    dLeaves = desktop ? await getPinLeaves(desktop, flags, 'en', logs) : [];
+    mLeaves = mobile ? await getPinLeaves(mobile, flags, 'en', logs) : [];
+  }
 
   logs.push({ step: `Desktop: ${dLeaves.length} пинов`, status: 'info' });
   logs.push({ step: `Mobile: ${mLeaves.length} пинов`, status: 'info' });

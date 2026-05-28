@@ -85,12 +85,13 @@ export type MessageToPlugin =
   | { type: 'PARSE'; schemaId: ParsingSchemaId }
   | { type: 'DOWNLOAD_SVGS'; exports: SvgExportItem[] }
   | { type: 'DUMP_STRUCTURE'; options?: StructureDumpOptions }
+  | { type: 'SAVE_SELECTED_SCHEMA'; schemaId: ParsingSchemaId }
   | { type: 'CLOSE' };
 
 // ─── Messages: Plugin → UI ─────────────────────────────────
 export type MessageToUI =
   | { type: 'SELECTION_DATA'; data: FigmaNodeInfo | null }
-  | { type: 'SCHEMAS_LIST'; schemas: SchemaInfo[] }
+  | { type: 'SCHEMAS_LIST'; schemas: SchemaInfo[]; lastSelectedId?: string }
   | { type: 'PARSE_PROGRESS'; step: string; status: LogStatus }
   | { type: 'PARSE_RESULT'; output: string | null; svgConfig: string | null; svgExports: SvgExportItem[] | null; svgFolder?: string; i18nConfig?: string | null; errors: string[] }
   | { type: 'SVG_EXPORT_PROGRESS'; done: number; total: number; currentName: string }
